@@ -15,5 +15,4 @@ Most deliverables available on our [website](https://sanakhan1997.github.io/Huma
 
 ## Legal Notices
 
-
-Copyright (c) 2020 Clark Inocalla, Kelly Holtzman, Mansi Patel, Sana Khan.
+Copyright (c) 2020 Onisokien Ayonoadu, Jaskirat Josan, Samuel Iregbu, Joseph Bello.
