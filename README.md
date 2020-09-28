@@ -1,15 +1,16 @@
 # BEEJ
 
+A mobile application that will assist citizens in reporting environmental issues to the government. Through our app, we hope to create one streamlined cross platform app that would become the easiest and most effective of communication between the citizens and the government. assist citizens in reporting 
 
 ## Project Deliverables 
 
 Here is a list of all deliverables submitted for this project: 
 
 - [Project Proposal](https://github.com/ayonoaduo/BEEJ-Project/blob/master/Documentation/Project%20Proposal.pdf) (September 11, 2020)
-- Project Vlog 1 [Documentation](https://github.com/holtzmak/Humane-Transport/wiki/Project-Vlog-1-Documentation) and [Video](https://www.youtube.com/watch?v=yEHSdMMVPaU) (September 23, 2020)
-- Scrum Report 1 [Slides](https://sanakhan1997.github.io/Humane-Transport/) (September 28, 2020)
+- [Project Vlog 1](https://youtu.be/lgsUW2jSQr4) (September 23, 2020)
+- [Scrum Report 1 Slides](https://docs.google.com/presentation/d/1dQl5YbfuUrIJgE6MQYeDMbFyS30ypJ4eLVX1zxqS0HI/edit#slide=id.p) (September 28, 2020)
 
-Most deliverables available on our [website](https://sanakhan1997.github.io/Humane-Transport/).
+View our [webpage](https://ayonoaduo.github.io/BEEJ-Project/).
 
 ***
 
