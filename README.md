@@ -5,7 +5,7 @@
 
 Here is a list of all deliverables submitted for this project: 
 
-- [Project Proposal](https://github.com/ayonoaduo/BEEJ-Project) (September 11, 2020)
+- [Project Proposal](https://github.com/ayonoaduo/BEEJ-Project/blob/master/Documentation/Project%20Proposal.pdf) (September 11, 2020)
 - Project Vlog 1 [Documentation](https://github.com/holtzmak/Humane-Transport/wiki/Project-Vlog-1-Documentation) and [Video](https://www.youtube.com/watch?v=yEHSdMMVPaU) (September 23, 2020)
 - Scrum Report 1 [Slides](https://sanakhan1997.github.io/Humane-Transport/) (September 28, 2020)
 
