@@ -78,7 +78,7 @@
     "siteUrl": false,
     "cookiesAlert": false,
     "gdpr": false,
-    "publishChangesOnly": true
+    "publishChangesOnly": false
   },
   "pages": {
     "page1.html": {
@@ -703,7 +703,7 @@
               "text-align": "center"
             },
             ".mbr-section-title": {
-              "text-align": "center"
+              "text-align": "right"
             }
           },
           "_name": "video3",
