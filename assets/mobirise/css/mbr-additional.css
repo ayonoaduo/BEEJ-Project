@@ -1191,7 +1191,20 @@ a {
   text-align: center;
 }
 .cid-sdOWuhLUec .mbr-section-title {
-  text-align: right;
+  text-align: center;
+}
+.cid-sgCGYCpWDd {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  background-color: #ffffff;
+}
+.cid-sgCGYCpWDd .video-wrapper iframe {
+  width: 100%;
+}
+.cid-sgCGYCpWDd .mbr-section-title,
+.cid-sgCGYCpWDd .mbr-section-subtitle,
+.cid-sgCGYCpWDd .mbr-text {
+  text-align: center;
 }
 .cid-sbV34UVsWK {
   padding-top: 0;
