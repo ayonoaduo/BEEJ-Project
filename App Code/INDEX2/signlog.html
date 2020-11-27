@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SignUp and Login</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+<div class="container" id="container">
+<div class="form-container sign-up-container">
+
+<form action="">
+	<h1>Create Account</h1>
+	<input type="text" name="name" id="name" placeholder="Name">
+	<input type="email" name="email" id="email" placeholder="Email">
+    <input type="number" name="number" id="number" placeholder="Phone Number">
+	<input type="password" name="password" id="password" placeholder="Password" onkeyup='check();'>
+    <input type="password" name="cpassword" id="cpassword" placeholder="Confirm Password" onkeyup='check();'><span id='message'></span>
+ 
+	<button type="button" onclick="callAPI(document.getElementById('fName').value,document.getElementById('lName').value)">SignUp</button>
+</form>
+  
+</div>
+    
+<div class="form-container sign-in-container">
+	<form action="#">
+		<h1>Login</h1>
+		
+	<input type="email" name="email" id="email" placeholder="Email">
+	<input type="password" name="password" id="password" placeholder="Password">
+	<a href="#">Forgot Your Password?</a>
+
+	<button>Login</button>
+	</form>
+</div>
+<div class="overlay-container">
+	<div class="overlay">
+		<div class="overlay-panel overlay-left">
+			<h1>Welcome Back!</h1>
+			<p>Already have an account? Please login with your personal info</p>
+			<button class="ghost" id="signIn">Login</button>
+		</div>
+		<div class="overlay-panel overlay-right">
+			<h1>Hello, Friend!</h1>
+			<p>Enter your details and start your journey with us</p>
+			<button class="ghost" id="signUp">Sign Up</button>
+		</div>
+	</div>
+</div>
+</div>
+
+<script type="text/javascript">
+	const signUpButton = document.getElementById('signUp');
+	const signInButton = document.getElementById('signIn');
+	const container = document.getElementById('container');
+
+	signUpButton.addEventListener('click', () => {
+		container.classList.add("right-panel-active");
+	});
+	signInButton.addEventListener('click', () => {
+		container.classList.remove("right-panel-active");
+	});
+</script>
+
+    <script> var check = function() {
+      if (document.getElementById('password').value !=
+          document.getElementById('cpassword').value) {
+          document.getElementById('message').style.color = 'red';
+          document.getElementById('message').innerHTML = 'passwords do not match';
+      } 
+  }</script>
+    
+    
+    
+    
+    
+    
+    
+    
+    <script>
+        // define the callAPI function that takes a first name and last name as parameters
+        var callAPI = (name,email,number,password)=>{
+
+</body>
+</html>
+
+
+
+
+
+
+
+
