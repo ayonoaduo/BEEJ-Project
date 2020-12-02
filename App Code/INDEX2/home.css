@@ -9,7 +9,7 @@ body {
 	background: #f6f5f7;
 	display: flex;
 	justify-content: center;
-	align-items: center;
+	align-items: left;
 	flex-direction: column;
 	font-family: 'Montserrat', sans-serif;
 	height: 100vh;
@@ -227,10 +227,16 @@ input {
 .container.right-panel-active .overlay-right {
 	transform: translateX(20%);
 }
+
 footer{
 color:grey;
 font-size: 12px;
 font-family: 'Montserrat', sans-serif;
     padding-top: 30px;
+}
+
+img2 {
+	width: 50%;
+ 	height: 50%;
 }
 
