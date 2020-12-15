@@ -11,6 +11,7 @@ Here is a list of all deliverables submitted for this project:
 - [Scrum Report 1 Slides](https://docs.google.com/presentation/d/1dQl5YbfuUrIJgE6MQYeDMbFyS30ypJ4eLVX1zxqS0HI/edit#slide=id.p) (September 28, 2020)
 - [Project Vlog 2](https://youtu.be/8i6qQlXmvgs) (October 19, 2020)
 - [Project Vlog 3](https://youtu.be/GmlRc-tzr2Y) (November 17, 2020)
+- [Project Vlog 3](https://www.youtube.com/watch?v=GehwIDdgUJ4&feature=youtu.be) (December 14, 2020)
 
 View our [webpage](https://ayonoaduo.github.io/BEEJ-Project/).
 
