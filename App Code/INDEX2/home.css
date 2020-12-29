@@ -8,8 +8,8 @@
 body {
 	background: #f6f5f7;
 	display: flex;
-	justify-content: center;
-	align-items: left;
+	justify-content: left;
+	align-items: center;
 	flex-direction: column;
 	font-family: 'Montserrat', sans-serif;
 	height: 100vh;
@@ -235,8 +235,8 @@ font-family: 'Montserrat', sans-serif;
     padding-top: 30px;
 }
 
-img2 {
-	width: 50%;
- 	height: 50%;
+#img2 {
+	width: -50%;
+ 	height: 10%;
 }
 
