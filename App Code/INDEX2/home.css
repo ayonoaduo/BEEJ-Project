@@ -8,8 +8,8 @@
 /* Deals with the display, alignment, font, height and margins of the body of the page*/
 body {
 	background: #f6f5f7;
-	display: grid;
-	justify-content: center;
+	display: flex;
+	justify-content: left;
 	align-items: center;
 	flex-direction: column;
 	font-family: 'Montserrat', sans-serif;
@@ -34,6 +34,42 @@ span {
 }
 
 
+.container.right-panel-active .overlay {
+  	transform: translateX(50%);
+}
+
+.overlay-panel {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding: 0 40px;
+	text-align: center;
+	top: 0;
+	height: 100%;
+	width: 50%;
+	transform: translateX(0);
+	transition: transform 0.6s ease-in-out;
+}
+
+.overlay-left {
+	transform: translateX(-20%);
+}
+
+.container.right-panel-active .overlay-left {
+	transform: translateX(0);
+}
+
+.overlay-right {
+	right: 0;
+	transform: translateX(0);
+}
+
+.container.right-panel-active .overlay-right {
+	transform: translateX(20%);
+}
+
 footer{
 color:grey;
 font-size: 12px;
@@ -41,3 +77,7 @@ font-family: 'Montserrat', sans-serif;
     padding-top: 30px;
 }
 
+#img2 {
+	width: -50%;
+ 	height: 10%;
+}
