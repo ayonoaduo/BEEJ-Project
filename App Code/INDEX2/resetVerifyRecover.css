@@ -4,6 +4,10 @@
 	box-sizing: border-box;
 }
 
+<<<<<<< HEAD:App Code/INDEX2/resetVerifyRecover.css
+/*style for the document body*/
+=======
+>>>>>>> b9971255aa98c6ae9d0b3635f2d792e71309ffa5:App Code/INDEX2/VerifyEmail.css
 body {
 	background: #f6f5f7;
 	display: flex;
@@ -47,6 +51,12 @@ button {
 	transition: transform 80ms ease-in;
 }
 
+<<<<<<< HEAD:App Code/INDEX2/resetVerifyRecover.css
+/* rescale the button when it is active */
+button:active {
+	transform: scale(0.95);
+}
+=======
 button:active {
 	transform: scale(0.95);
 }
@@ -54,6 +64,7 @@ button:active {
 button:focus {
 	outline: none;
 }
+>>>>>>> b9971255aa98c6ae9d0b3635f2d792e71309ffa5:App Code/INDEX2/VerifyEmail.css
 
 button:hover{
     background-color: black;
@@ -65,6 +76,10 @@ button.ghost {
 	border-color: #FFFFFF;
 }
 
+<<<<<<< HEAD:App Code/INDEX2/resetVerifyRecover.css
+/*style for the form*/
+=======
+>>>>>>> b9971255aa98c6ae9d0b3635f2d792e71309ffa5:App Code/INDEX2/VerifyEmail.css
 form {
 	background-color: #FFFFFF;
     display: flex;
@@ -76,7 +91,11 @@ form {
 	text-align: center;
 }
 
+<<<<<<< HEAD:App Code/INDEX2/resetVerifyRecover.css
+/*style for the form's inputs*/
+=======
 
+>>>>>>> b9971255aa98c6ae9d0b3635f2d792e71309ffa5:App Code/INDEX2/VerifyEmail.css
 input {
 	background-color: #eee;
 	border: none;
@@ -85,6 +104,10 @@ input {
 	width: 100%;
 }
 
+<<<<<<< HEAD:App Code/INDEX2/resetVerifyRecover.css
+/*style for the body's container*/
+=======
+>>>>>>> b9971255aa98c6ae9d0b3635f2d792e71309ffa5:App Code/INDEX2/VerifyEmail.css
 .container {
 	background-color: #fff;
 	border-radius: 10px;
