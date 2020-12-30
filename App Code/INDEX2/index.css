@@ -20,18 +20,12 @@ h1 {
 	margin: 10px;   
 }
 
-p {
-	font-size: 14px;
-	font-weight: 100;
-	line-height: 20px;
-	letter-spacing: 0.5px;
-	margin: 20px 0 30px;
-}
 
 span {
 	font-size: 12px;
 }
 
+/* Deals with the border, background colour, font size, amrgina nd letter spacing of the button */
 button {
 	border-radius: 20px;
 	border: 2px solid #ff4848;
@@ -47,6 +41,7 @@ button {
 	transition: transform 80ms ease-in;
 }
 
+/*When button is active do the following*/
 button:active {
 	transform: scale(0.95);
 }
@@ -54,6 +49,8 @@ button:active {
 button:focus {
 	outline: none;
 }
+
+/*When you hover over the button change the colour of the button to black and have no border*/
 button:hover{
     background-color: black;
     border:none;
@@ -64,6 +61,7 @@ button.ghost {
 	border-color: #FFFFFF;
 }
 
+/*Deals with the background colour, dispaly, alighnment and padding of the form */
 form {
 	background-color: #FFFFFF;
 	display: flex;
@@ -76,14 +74,7 @@ form {
 }
 
 
-input {
-	background-color: #eee;
-	border: none;
-	padding: 12px 15px;
-	margin: 8px 0;
-	width: 100%;
-}
-
+/*Deals with the background colour, border, position, height and width of the container*/
 .container {
 	background-color: #fff;
 	border-radius: 10px;
@@ -94,4 +85,3 @@ input {
 	max-width: 100%;
 	min-height: 380px;
 }
-
