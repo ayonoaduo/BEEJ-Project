@@ -1,3 +1,6 @@
+/*
+* Login and Signup for Citizens and Ministry
+*/
 
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
@@ -43,6 +46,7 @@ a {
 	text-decoration: none;
 	margin: 15px 0;
 }
+
 a:hover{
         color:#ff4848;
 }
@@ -72,10 +76,9 @@ button:focus {
 
 button:hover{
     background-color: black;
-    border-color:black;
-    
-    
+    border-color:black;    
 }
+
 button.ghost {
 	background-color: transparent;
 	border-color: #FFFFFF;
@@ -84,6 +87,7 @@ button.ghost:hover{
     background-color: black;
     border-color: #000;
 }
+
 form {
 	background-color: #FFFFFF;
 	display: flex;
@@ -106,16 +110,13 @@ input {
 .container {
 	background-color: #fff;
 	border-radius: 10px;
-  	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
-			0 10px 10px rgba(0,0,0,0.22);
+  	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 	position: relative;
 	overflow: hidden;
 	width: 768px;
 	max-width: 100%;
 	min-height: 670px;
 }
-
-
 
 .form-container {
 	position: absolute;
@@ -159,6 +160,7 @@ input {
 		z-index: 5;
 	}
 }
+
 
 .overlay-container {
 	position: absolute;
@@ -226,10 +228,13 @@ input {
 .container.right-panel-active .overlay-right {
 	transform: translateX(20%);
 }
-footer{
-color:grey;
-font-size: 12px;
-font-family: 'Montserrat', sans-serif;
+
+footer
+{
+	color:grey;
+	font-size: 12px;
+	font-family: 'Montserrat', sans-serif;
     padding-top: 30px;
 }
+
 

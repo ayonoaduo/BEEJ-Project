@@ -1,3 +1,49 @@
+<?php
+
+$emailErr = $passErr = "";
+$email = $password = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  if (empty($_POST["email"])) {
+    $emailErr = "Email is required";
+  } else {
+    $email = test_input($_POST["email"]);
+  }
+
+  if (empty($_POST["password"])) {
+    $passErr = "Password is required";
+  } else {
+    $password = test_input($_POST["password"]);
+  }
+
+	
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+}
+?>
+
+
+	<form id="Login" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">    
+        	<table>
+        	<body><tr><td></td><td><span class="error">* <?php echo $emailErr;?></span></td></tr>
+        	<tr><td>Email: </td><td> <input type="text" name="email" size="30"></td></tr>
+
+        	<tr><td></td><td><span class="error">* <?php echo $passErr;?></span></td></tr>
+        	<tr><td>Password: </td><td> <input type="password" name="password" size="30"></td></tr>
+   	 
+        	</body></table><br>
+        	<input id="submit" type="submit" value="Log In">
+        	<input id="submit" type="reset" value="Reset">
+
+        	</form>
+
+    	</article>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
