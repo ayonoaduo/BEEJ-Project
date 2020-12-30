@@ -1,6 +1,10 @@
 /*import fonts from google apis*/
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
+* {
+	box-sizing: border-box;
+}
+
 /*style for the document body*/
 body {
 	background: #f6f5f7;
@@ -35,11 +39,20 @@ button {
 	transition: transform 80ms ease-in;
 }
 
+/* rescale the button when it is active */
+button:active {
+	transform: scale(0.95);
+}
 
 /* The button color will be black when the cursor hovers over it */
 button:hover{
     background-color: black;
     border: none;
+}
+
+button.ghost {
+	background-color: transparent;
+	border-color: #FFFFFF;
 }
 
 /*style for the form*/
@@ -52,6 +65,15 @@ form {
 	padding: 60px 50px;
 	height: 100%;
 	text-align: center;
+}
+
+/*style for the form's inputs*/
+input {
+	background-color: #eee;
+	border: none;
+	padding: 12px 15px;
+	margin: 8px 0;
+	width: 100%;
 }
 
 /*style for the body's container*/
