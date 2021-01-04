@@ -1,4 +1,4 @@
-# BEEJ
+# The Link
 
 A mobile application that will assist citizens in reporting environmental issues to the government. Through our app, we hope to create one streamlined cross platform app that would become the easiest and most effective of communication between the citizens and the government.
 
