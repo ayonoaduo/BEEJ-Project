@@ -124,8 +124,7 @@ input {
 	max-width: 100%;
 	min-height: 380px;
 }
-
-notes{
+notes {
     font-size: .8rem;
     letter-spacing: 1px;
     padding: 10px;
@@ -133,12 +132,9 @@ notes{
     border-radius: 5px;
     border: 1px solid #ccc;
     box-shadow: 1px 1px 1px #999;
-    height: 42px;
-    width: 300px;
 }
 
-footer
-{
+footer{
 	color:grey;
 	font-size: 12px;
 	font-family: 'Montserrat', sans-serif;
