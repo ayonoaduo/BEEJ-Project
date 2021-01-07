@@ -1,52 +1,40 @@
-/*import fonts from google apis*/
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+body, html {
+  height: 100%;
+  margin: 0;
+  /*font-family: Arial, Helvetica, sans-serif;*/
+    font-family: "Tangerine", "Tangerine", cursive;
+}
 
 * {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-/*style for the document body*/
-body {
-	background: #eee;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
-	font-family: 'Montserrat', sans-serif;
-	height: 100vh;
-	margin: -20px 0 50px;
+.bg-image {
+  /* The image used */
+  background-image: url("image.jpg");
+  
+  /* Add the blur effect */
+  filter: blur(3px);
+  -webkit-filter: blur(3px);
+  
+  /* Full height */
+  height: 100%; 
+  
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-/*style for header 1*/
-h1 {
-	font-weight: bold;
-	margin: 10px;  
-    color:black;
+/* Position text in the middle of the page/image */
+.bg-text {
+  color: white;
+  font-weight: bold;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 80%;
+  text-align: center;
 }
-
-
-/*style for the form*/
-form {
-	background-color: white;
-    display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-	padding: 60px 50px;
-	height: 100%;
-	text-align: center;
-}
-
-/*style for the body's container*/
-.container {
-	background-color: white;
-	border-radius: 10px;
-  	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-	position: relative;
-	overflow: hidden;
-	width: 400px;
-	max-width: 100%;
-	min-height: 380px;
-}
-
-
