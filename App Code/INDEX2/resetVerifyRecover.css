@@ -1,9 +1,11 @@
+/*import fonts from google apis*/
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
 * {
 	box-sizing: border-box;
 }
 
+/*style for the document body*/
 body {
 	background: #f6f5f7;
 	display: flex;
@@ -15,23 +17,13 @@ body {
 	margin: -20px 0 50px;
 }
 
+/*style for header 1*/
 h1 {
 	font-weight: bold;
 	margin: 10px;   
 }
 
-p {
-	font-size: 14px;
-	font-weight: 100;
-	line-height: 20px;
-	letter-spacing: 0.5px;
-	margin: 20px 0 30px;
-}
-
-span {
-	font-size: 12px;
-}
-
+/*the default style of the button*/
 button {
 	border-radius: 20px;
 	border: 2px solid #ff4848;
@@ -47,14 +39,12 @@ button {
 	transition: transform 80ms ease-in;
 }
 
+/* rescale the button when it is active */
 button:active {
 	transform: scale(0.95);
 }
 
-button:focus {
-	outline: none;
-}
-
+/* The button color will be black when the cursor hovers over it */
 button:hover{
     background-color: black;
     border: none;
@@ -65,6 +55,7 @@ button.ghost {
 	border-color: #FFFFFF;
 }
 
+/*style for the form*/
 form {
 	background-color: #FFFFFF;
     display: flex;
@@ -76,7 +67,7 @@ form {
 	text-align: center;
 }
 
-
+/*style for the form's inputs*/
 input {
 	background-color: #eee;
 	border: none;
@@ -85,6 +76,7 @@ input {
 	width: 100%;
 }
 
+/*style for the body's container*/
 .container {
 	background-color: #fff;
 	border-radius: 10px;
