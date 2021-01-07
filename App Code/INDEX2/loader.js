@@ -1,6 +1,11 @@
 var myVar;
+<<<<<<< Updated upstream
 function myFunction() 
 {
+=======
+
+function myFunction() {
+>>>>>>> Stashed changes
   myVar = setTimeout(showPage, 1000);
 }
 
