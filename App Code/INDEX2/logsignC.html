@@ -2,25 +2,25 @@
 <html>
 <head>
 
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-        <title>
-Sign Up and Login
-</title>
-<!-- add icon link -->
-    <link rel = "icon" href ="nfs.png"
-              type = "image/x-icon">  
+    <title> Sign Up and Login </title>
+	
+	<!-- add icon link -->
+    <link rel = "icon" href ="nfs.png" type = "image/x-icon">  
     
-        <meta name="robots" content="noimageindex, noarchive">
-        <meta name="apple-mobile-web-app-status-bar-style" content="default">
-        <meta name="mobile-web-app-capable" content="yes">
-        <meta name="theme-color" content="#ffffff">
-        <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover">
-	<link rel="stylesheet" type="text/css" href="logsignC.css">
+    <meta name="robots" content="noimageindex, noarchive">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#ffffff">
+    <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover">
+    
+	<link rel="stylesheet" type="text/css" href="logsign.css">
     <link rel="stylesheet" type="text/css" href="loader.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="manifest" href="/manifest.json">
+    
 </head>
     
     
@@ -30,46 +30,48 @@ Sign Up and Login
 <div class="form-container sign-up-container">
 
 <form action="">
-    <span>
-<img src="nfs.png" alt="Image Load Error" width="100" height="100">
-</span>
+    <span> <img src="nfs.png" alt="Image Load Error" width="100" height="100"> </span>
+    
 	<h1>Create Account</h1>
+	
 	<input type="text" name="name" id="name" placeholder="Name">
 	<input type="email" name="email" id="email" placeholder="Email">
     <input type="number" name="number" id="number" placeholder="Phone Number">
 	<input type="password" name="password" id="password" placeholder="Password" onkeyup='check();'>
     <input type="password" name="cpassword" id="cpassword" placeholder="Confirm Password" onkeyup='check();'><span id='message'></span>
-    
-   <input type="checkbox" id="terms" name="terms" value="terms">
-  <label for="terms">Click to accept <a href="terms.html" text-color=black;><u>terms and conditions</u></a></label><br>
+    <input type="checkbox" id="terms" name="terms" value="terms">
+    <label for="terms">Click to accept <a href="terms.html" text-color=black;><u>terms and conditions</u></a></label><br>
  
+	<button type="reset">Reset</button>
+    <button type="button" onclick="callAPI(document.getElementById('name').value, document.getElementById('email').value, document.getElementById('number').value, document.getElementById('password').value)">SignUp</button>
 
-<button type="reset">Reset</button>
-    
-	<button type="button" onclick="callAPI(document.getElementById('name').value, document.getElementById('email').value, document.getElementById('number').value, document.getElementById('password').value)">SignUp</button>
-
-     <footer>
-&copy; 2020 BEEJ All rights reserved.
-</footer>
+    <footer>
+		&copy; 2020 BEEJ All rights reserved.
+	</footer>
+	
 </form>
-    </div>
+</div>
+
+
 <div class="form-container sign-in-container">
 	<form action="#">
-        <span>
-<img src="nfs.png" alt="Image Load Error" width="100" height="100">
-</span>
+	
+        <span> <img src="nfs.png" alt="Image Load Error" width="100" height="100"> </span>
 		<h1>Login</h1>
 		
-	<input type="email" name="email" id="email" placeholder="Email">
-	<input type="password" name="password" id="password" placeholder="Password">
-	<a href="resetpassword.html"><u>Forgot Your Password?</u></a>
+		<input type="email" name="email" id="email" placeholder="Email">
+		<input type="password" name="password" id="password" placeholder="Password">
+		<a href="resetpassword.html"><u>Forgot Your Password?</u></a>
 
-	<button>Login</button>
-        <footer >
-&copy; 2020 BEEJ All rights reserved.
-</footer>
+		<button>Login</button>
+		
+        <footer>
+			&copy; 2020 BEEJ All rights reserved.
+		</footer>
+		
 	</form>
 </div>
+
 <div class="overlay-container">
 	<div class="overlay">
 		<div class="overlay-panel overlay-left">
@@ -100,7 +102,7 @@ Sign Up and Login
 	});
 </script>
 
-  <script> var check = function() 
+<script> var check = function() 
     {
       if (document.getElementById('password').value != document.getElementById('cpassword').value) 
       {
@@ -118,13 +120,9 @@ Sign Up and Login
       	  document.getElementById('message').innerHTML = ''; 		
       }
   	}
-  	</script>
-    
-    
-    
-    
-    
- <script>
+</script>
+        
+<script>
         // define the callAPI function that takes a first name and last name as parameters
         var callAPI = (name,email,number,password)=>{
         // instantiate a headers object
@@ -146,20 +144,11 @@ Sign Up and Login
             .then(result => alert(JSON.parse(result).body))
             .catch(error => console.log('error', error));
         }
-        </script>
+</script>
     
-     
-    
-    <script type="text/javascript" src="loader.js"></script>
-    
-    
-    
+<script type="text/javascript" src="loader.js"></script>
     
 </body>
 </html>
-
-
-
-
 
 

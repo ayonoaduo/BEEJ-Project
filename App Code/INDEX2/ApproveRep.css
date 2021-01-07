@@ -1,3 +1,7 @@
+/*
+* Login and Signup for Citizens and Ministry
+*/
+
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
 * {
@@ -16,13 +20,38 @@ body {
 }
 
 h1 {
-	font-weight: bold;
-	margin: 10px;   
+	/*font-weight: bold;*/
+	margin: 0;
+	font-size: 24px;
 }
 
+h2 {
+	/*text-align: center;*/
+	font-weight: bold;
+	margin 0;
+}
+
+p {
+	font-size: 14px;
+	font-weight: 100;
+	line-height: 20px;
+	letter-spacing: 0.5px;
+	margin: 20px 0 30px;
+}
 
 span {
 	font-size: 12px;
+}
+
+a {
+	color: #000;
+	font-size: 14px;
+	text-decoration: none;
+	margin: 15px 0;
+}
+
+a:hover{
+        color:#ff4848;
 }
 
 /* Deals with the border, background colour, font size, amrgina nd letter spacing of the button */
@@ -40,6 +69,7 @@ button {
 	text-transform: uppercase;
 	transition: transform 80ms ease-in;
 }
+
 
 /*When button is active do the following*/
 button:active {
@@ -74,6 +104,15 @@ form {
 }
 
 
+
+input {
+	background-color: #eee;
+	border: none;
+	padding: 12px 15px;
+	margin: 8px 0;
+	width: 100%;
+}
+
 /*Deals with the background colour, border, position, height and width of the container*/
 .container {
 	background-color: #fff;
@@ -85,3 +124,21 @@ form {
 	max-width: 100%;
 	min-height: 380px;
 }
+notes {
+    font-size: .8rem;
+    letter-spacing: 1px;
+    padding: 10px;
+    line-height: 1.5;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-shadow: 1px 1px 1px #999;
+}
+
+footer{
+	color:grey;
+	font-size: 12px;
+	font-family: 'Montserrat', sans-serif;
+    padding-top: 30px;
+}
+
+
