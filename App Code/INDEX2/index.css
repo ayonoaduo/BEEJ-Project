@@ -25,13 +25,13 @@ span {
 	font-size: 12px;
 }
 
-/* Deals with the border, background colour, font size, amrgina nd letter spacing of the button */
+/* Deals with the border, background colour, font size, amrgina nd letter spacing of the buttons */
 button {
 	border-radius: 20px;
 	border: 2px solid #ff4848;
 	background-color: #ff4848;
 	color: #FFFFFF;
-	font-size: 12px;
+	font-size: 18px;
 	font-weight: bold;
 	padding: 15px 45px;
     margin: 10px;
@@ -40,6 +40,26 @@ button {
 	text-transform: uppercase;
 	transition: transform 80ms ease-in;
 }
+
+.btn {
+  border: none;
+  background-color: inherit;
+  padding: 14px 28px;
+  font-size: 45px;
+  cursor: pointer;
+  display: inline-block;
+    margin-right: 62px;
+    margin-left: 62px;
+}
+
+.btn:hover {background: #eee;}
+
+.success {color: black;}
+.info {color: dodgerblue;}
+.warning {color: orange;}
+.danger {color: red;}
+.default {color: black;}
+       
 
 /*When button is active do the following*/
 button:active {
@@ -85,3 +105,5 @@ form {
 	max-width: 100%;
 	min-height: 380px;
 }
+
+ 
