@@ -29,9 +29,9 @@ button {
 	border: 2px solid #ff4848;
 	background-color: #ff4848;
 	color: #FFFFFF;
-	font-size: 12px;
+	font-size: 20px;
 	font-weight: bold;
-	padding: 15px 45px;
+	padding: 5px 15px;
     margin: 5px;
     cursor: pointer;
 	letter-spacing: 2px;
@@ -101,4 +101,3 @@ radio {
 	width: auto;
 	margin-left: 3em;
 }
-
