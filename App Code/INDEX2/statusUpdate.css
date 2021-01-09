@@ -87,17 +87,3 @@ input {
 	max-width: 100%;
 	min-height: 380px;
 }
-
-
-
-#radio label {
-	float: right;
-    display: inline
-}
-radio {
-    display: inline;
-}
-#radio input {
-	width: auto;
-	margin-left: 3em;
-}
