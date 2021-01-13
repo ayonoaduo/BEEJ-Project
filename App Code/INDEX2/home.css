@@ -80,3 +80,37 @@ font-family: 'Montserrat', sans-serif;
 	width: -50%;
  	height: 10%;
 }
+
+input{
+    border-radius: 20px;
+	border: 2px solid #ff4848;
+	background-color: #ff4848;
+	color: #FFFFFF;
+	font-size: 18px;
+	font-weight: bold;
+	padding: 15px 45px;
+    margin: 10px;
+    cursor: pointer;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	transition: transform 80ms ease-in;
+}
+
+input:active {
+	transform: scale(0.95);
+}
+
+input:focus {
+	outline: none;
+}
+
+/*When you hover over the button change the colour of the button to black and have no border*/
+input:hover{
+    background-color: black;
+    border:none;
+}
+
+input.ghost {
+	background-color: transparent;
+	border-color: #FFFFFF;
+}
