@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+}
+
+.app {
+  background-color:#fafafa;
+  height: 100%;
+
+}
+
+.app__posts {
+  padding: 20px; /*space out the header from the post*/
+  justify-content: center;
+  display:flex;
+}
+
+
+.app__header { 
+  position:sticky; /*header sticks to the top*/
+  top:0px;
+  z-index:1;
+background-color: white;
+padding: 20px;
+border-bottom: 1px solid lightgray;
+object-fit:contain; /*keep the aspect ratio of the image regardless of its size*/
+display:flex;
+justify-content: space-between;
+}
+
+.app__headerImage {
+  object-fit: contain;
+
+}
+
+.app__signup{
+  display: flex;
+  flex-direction: column;
+}
