@@ -12,7 +12,7 @@ Here is a list of all deliverables submitted for this project:
 - [Progress Vlog 1](https://youtu.be/8i6qQlXmvgs) (October 19, 2020)
 - [Progress Vlog 2](https://youtu.be/GmlRc-tzr2Y) (November 17, 2020)
 - [Progress Vlog 3](https://youtu.be/GehwIDdgUJ4) (December 14, 2020)
-- [Progress Vlog 3](https://www.youtube.com/watch?v=QyCRkiASO-U&feature=youtu.be) (February 4, 2021)
+- [Progress Vlog 4](https://www.youtube.com/watch?v=QyCRkiASO-U&feature=youtu.be) (February 4, 2021)
 
 
 View our [webpage](https://ayonoaduo.github.io/BEEJ-Project/).
