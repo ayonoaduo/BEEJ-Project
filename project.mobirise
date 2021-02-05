@@ -78,7 +78,10 @@
     "siteUrl": false,
     "cookiesAlert": false,
     "gdpr": false,
-    "publishChangesOnly": true
+    "publishChangesOnly": true,
+    "publishType": "github",
+    "gitHubName": "ayonoaduo",
+    "gitHubPath": "BEEJ-Project"
   },
   "pages": {
     "page1.html": {
