@@ -1,6 +1,6 @@
 # The Link
 
-A mobile application that will assist citizens in reporting environmental issues to the government. Through our app, we hope to create one streamlined cross platform app that would become the easiest and most effective of communication between the citizens and the government.
+The Link is a Progressive Web Application designed to bridge the gap of communication between the citizens and the City of Regina. Citizens can take a picture of road hazards in their area and submit their report. The City of Regina can easily view, approve and monitor reports. Once a report is approved, it will appear on the homepage and can be viewed by all users. This is to keep users in the loop of what is happening around the city. The Link strives to be an inclusive platform that organizes the communication between the citizens and the City of Regina in the most streamlined and concise way possible.
 
 ## Project Deliverables 
 
