@@ -1,14 +1,24 @@
 import React, { useState, useEffect } from "react";
 import { db } from "./firebase";
-import "./Post.css";
+import "./UserPost.css";
 import Avatar from "@material-ui/core/Avatar";
 import firebase from "firebase";
 
-function Post({ postId, user, username, caption, imageUrl, keyword }) {
+function UserPost({
+  postId,
+  user,
+  username,
+  caption,
+  imageUrl,
+  keyword,
+  uid,
+  displayName,
+}) {
   const [comments, setComments] = useState([]); //keep track of the comments
   const [comment, setComment] = useState("");
 
   useEffect(() => {
+    // const sb = firebase.firestore();
     let unsubscribe;
     if (postId) {
       //if a post id was passed true
@@ -41,11 +51,11 @@ function Post({ postId, user, username, caption, imageUrl, keyword }) {
   };
 
   return (
-    <div className="post">
+    <div className="userPost">
       {/*header -> avatar + username */}
-      <div className="post__header">
+      <div className="userPost__header">
         <Avatar
-          className="post__avatar"
+          className="userPost__avatar"
           alt={username} /*display the first letter if no picture*/
           src="/static/images/avatar/1.jpg"
         />
@@ -53,14 +63,14 @@ function Post({ postId, user, username, caption, imageUrl, keyword }) {
       </div>
 
       {/*image*/}
-      <img className="post__image" src={imageUrl} alt=""></img>
+      <img className="userPost__image" src={imageUrl} alt=""></img>
 
       {/* username + caption */}
-      <h4 className="post__text">
+      <h4 className="userPost__text">
         <strong>{username}</strong> {caption}
       </h4>
 
-      <div className="post__comments">
+      <div className="userPost__comments">
         {comments.map((
           comment //map through each comment
         ) => (
@@ -71,9 +81,9 @@ function Post({ postId, user, username, caption, imageUrl, keyword }) {
       </div>
 
       {user?.displayName ? ( //comment box only shows if you are logged in
-        <form className="post__commentBox">
+        <form className="userPost__commentBox">
           <input
-            className="post__input"
+            className="userPost__input"
             type="text"
             placeholder="Add a comment..."
             value={comment}
@@ -81,7 +91,7 @@ function Post({ postId, user, username, caption, imageUrl, keyword }) {
           />
           <button
             disabled={!comment} //disable if there is no comment
-            className="post__button"
+            className="userPost__button"
             type="submit"
             onClick={postComment}
           >
@@ -96,4 +106,4 @@ function Post({ postId, user, username, caption, imageUrl, keyword }) {
   );
 }
 
-export default Post;
+export default UserPost;

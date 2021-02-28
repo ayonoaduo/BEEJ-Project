@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./Home.css";
 import logo from "./beej.png";
-import Post from "./Post";
+import UserPost from "./UserPost";
+//import RecoverAccount from './RecoverAccount';
 import { db, auth } from "./firebase";
 import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
@@ -29,7 +30,6 @@ import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
-//import Button from '@material-ui/core/Button';
 
 /*Styling for modal. Code from material-ui.com*/
 function getModalStyle() {
@@ -53,7 +53,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Home() {
+function Profile() {
   /*states...how you set variables in react*/
   const classes = useStyles();
   // getModalStyle is not a pure function, we roll the style only on the first render
@@ -66,15 +66,13 @@ function Home() {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [user, setUser] = useState(null); //state to keep track of the user
-  const [openAdmin, setOpenAdmin] = useState(false);
 
   //IMAGE UPLOAD STATES
   const [openP, setOpenP] = useState(false);
   const [caption, setCaption] = useState("");
   const [image, setImage] = useState(null); //state for the progress bar
-
+  // eslint-disable-next-line
   const [progress, setProgress] = useState(0);
-  const [openProgress, setOpenProgress] = useState(false); //progress bar state
 
   const [keyword, setKeyword] = React.useState("");
   const [openDropDown, setOpenDropDown] = React.useState(false);
@@ -100,7 +98,7 @@ function Home() {
     }
   };
 
-  const handleUpload = (event) => {
+  const handleUploadd = (event) => {
     event.preventDefault(); //avoid refresh when upload button is clicked
 
     //access the storage in firebase, get a references to the folder images/ and store image there
@@ -137,7 +135,6 @@ function Home() {
               imageUrl: url,
               username: user.displayName,
               keyword: keyword,
-              status: "",
             });
 
             setProgress(0); //reset progress
@@ -149,8 +146,6 @@ function Home() {
     );
 
     setOpenP(false); //close modal after upload
-    setOpenProgress(true); //open progress modal
-    setOpenProgress(false); //never mind, dont show progress bar modal
   };
 
   useEffect(() => {
@@ -169,6 +164,19 @@ function Home() {
             displayName: username, //set their display name in firebase
           });
         }
+
+        db.collection("posts")
+          .where("username", "==", authUser.displayName)
+          .orderBy("timestamp", "desc")
+          .onSnapshot((snapshot) => {
+            //everytime a new post is added, this code fires...
+            setPosts(
+              snapshot.docs.map((doc) => ({
+                id: doc.id, //the post ids
+                post: doc.data(),
+              }))
+            );
+          });
       } else {
         // user has logged out...
         setUser(null);
@@ -179,27 +187,22 @@ function Home() {
       //perform some cleanup actions before restarting the useEffect. This to avoid duplicate listeners.
       unsubscribe();
     };
-  }, [user, username]);
+  }, [user, username]); //[] symbol means run the code once //sign up function. Fired up by the button
 
   //useEffect runs a piece of code based on a specific condition
-  useEffect(() => {
-    //this is where the code runs
-    //snapshot is a powerful listener that will run the code when a post is made
-    db.collection("posts")
-      .orderBy("timestamp", "desc")
-      .onSnapshot((snapshot) => {
-        //everytime a new post is added, this code fires...
-        setPosts(
-          snapshot.docs.map((doc) => ({
-            id: doc.id, //the post ids
-            post: doc.data(),
-          }))
-        );
-      });
-  }, []); //[] symbol means run the code once
-
-  //sign up function. Fired up by the button
-  const signUp = (event) => {
+  /* useEffect(() => {
+  //this is where the code runs
+  //snapshot is a powerful listener that will run the code when a post is made
+  db.collection('posts').where('username', '==', 'joey_11_').orderBy('timestamp', 'desc').onSnapshot(snapshot => {
+    //everytime a new post is added, this code fires...
+    setPosts(snapshot.docs.map(doc => ({
+      id: doc.id, //the post ids
+      post: doc.data()
+    })));
+  })
+}, []); */ const signUp = (
+    event
+  ) => {
     event.preventDefault(); //avoid refresh when sign up button is clicked
 
     //verify email
@@ -242,15 +245,6 @@ function Home() {
       .catch((error) => alert(error.message)); //alert of any errors with a message
 
     setOpenSignIn(false); //close modal after signing in
-  };
-
-  const myFunction = (event) => {
-    event.preventDefault(); //avoid refresh when sign up button is clicked
-
-    var passcode = document.getElementById("pass").value;
-    passcode == 70321
-      ? (window.location = "/AdminPage")
-      : alert("Incorrect passcode");
   };
 
   return (
@@ -366,26 +360,26 @@ function Home() {
               />
             </center>
             {/* <FormControl className={classes.formControl}>
-              <InputLabel id="demo-controlled-open-select-label">
-                Choose a keyword
-              </InputLabel>
-              <Select
-                labelId="demo-controlled-open-select-label"
-                id="demo-controlled-open-select"
-                open={openDropDown}
-                onClose={handleCloseDropDown}
-                onOpen={handleOpenDropDown}
-                value={keyword}
-                onChange={handleChangeDropDown}
-              >
-                <MenuItem value="">
-                  <em>--Choose a keyword--</em>
-                </MenuItem>
-                <MenuItem value={"Pothole"}>Pothole</MenuItem>
-                <MenuItem value={"Water Spill"}>Water Spill</MenuItem>
-                <MenuItem value={"Sinkhole"}>Sinkhole</MenuItem>
-              </Select>
-            </FormControl> */}
+            
+
+        <InputLabel id="demo-controlled-open-select-label">Choose a keyword</InputLabel>
+        <Select
+          labelId="demo-controlled-open-select-label"
+          id="demo-controlled-open-select"
+          open={openDropDown}
+          onClose={handleCloseDropDown}
+          onOpen={handleOpenDropDown}
+          value={keyword}
+          onChange={handleChangeDropDown}
+        >
+          <MenuItem value="">
+            <em>--Choose a keyword--</em>
+          </MenuItem>
+          <MenuItem value={"Pothole"}>Pothole</MenuItem>
+          <MenuItem value={"Water Spill"}>Water Spill</MenuItem>
+          <MenuItem value={"Sinkhole"}>Sinkhole</MenuItem>
+        </Select>
+      </FormControl> */}
 
             <input
               type="text"
@@ -395,25 +389,14 @@ function Home() {
             />
             <input type="file" onChange={handleChange} />
 
-            <button onClick={handleUpload}>Upload</button>
+            <button onClick={handleUploadd}>Upload</button>
           </div>
         </div>
       </Modal>
 
-      <Modal
-        open={openProgress} //state to keep track if its open
-        onClose={() => setOpenProgress(false)} //onClose method. closes the model when anywhere else on the screen is clicked
-      >
-        <div style={modalStyle} className={classes.paper}>
-          <progress
-            className="imageupload__progress"
-            value={progress}
-            max="100"
-          />
-        </div>
-      </Modal>
-
       <div className="app__header">
+        {/* <progress className="imageupload__progress" value={progress} max="100"/> */}
+
         <img
           className="app__headerImage"
           src={logo}
@@ -422,53 +405,8 @@ function Home() {
           height="60px"
         />
 
-        {/* modal for admin*/}
-
-        <Modal //Sign Out and Login Modal
-          open={openAdmin} //state to keep track if its open
-          onClose={() => setOpenAdmin(false)} //onClose method. closes the model
-          when
-          anywhere
-          else
-          on
-          the
-          screen
-          is
-          clicked
-        >
-          <div style={modalStyle} className={classes.paper}>
-            <form className="app__signup">
-              <center>
-                <img
-                  className="app__headerImage"
-                  src={logo}
-                  alt=""
-                  width="100px"
-                  height="100px"
-                />
-              </center>
-              <LockOutlinedIcon />
-              <Input
-                placeholder="Authorization Code"
-                id="pass"
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-              <button type="submit" onClick={myFunction}>
-                Submit
-              </button>
-            </form>
-          </div>
-        </Modal>
-        {/**********************************************NEWWWWWWWWW***********************************************************************/}
-
         {user?.displayName ? ( //if the user exists, show a Logout button
-          <div>
-            {/* <button>Are you an Admin??</button> */}
-            <button onClick={() => setOpenAdmin(true)}>Admin</button>
-            <button onClick={() => auth.signOut()}>Logout</button>
-          </div>
+          <button onClick={() => auth.signOut()}>Logout</button>
         ) : (
           //else, show a sign up button
           <div className="app__loginContainer">
@@ -485,7 +423,7 @@ function Home() {
             /*loop through posts in state*/
             posts.map(({ id, post }) => (
               //the key allows the page to only refresh the new post, not all the posts. since each post has its own key
-              <Post
+              <UserPost
                 key={id}
                 postId={id}
                 user={user}
@@ -493,7 +431,8 @@ function Home() {
                 caption={post.caption}
                 imageUrl={post.imageUrl}
                 keyword={post.keyword}
-              ></Post>
+                uid={post.uid}
+              ></UserPost>
             ))
           }
         </div>
@@ -537,4 +476,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Profile;

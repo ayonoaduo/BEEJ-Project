@@ -36,3 +36,16 @@ justify-content: space-between;
   display: flex;
   flex-direction: column;
 }
+
+ 
+  .app__bottom {
+    position:sticky; /*header sticks to the top*/
+    bottom:0px;
+    z-index:1;
+  background-color: white;
+  
+  border-bottom: 1px solid lightgray;
+  object-fit:contain; /*keep the aspect ratio of the image regardless of its size*/
+ 
+  justify-content: space-between;
+};

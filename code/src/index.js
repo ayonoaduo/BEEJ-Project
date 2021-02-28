@@ -4,16 +4,10 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
-import Home from './Home';
-//import { UserProvider } from './UserContext';
-
-ReactDOM.render(<Home />, document.querySelector('#root'));
 
 ReactDOM.render((
    <BrowserRouter>
-     {/* <UserProvider> */}
-        <App /> {/* The various pages will be displayed by the `Main` component. */}
-     {/* </UserProvider> */}
+     <App /> {/* The various pages will be displayed by the `Main` component. */}
    </BrowserRouter>
    ), document.getElementById('root')
  );

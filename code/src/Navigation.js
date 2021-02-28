@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 function Navigation (){
     return (
        <div>
-          {/* <Link to="/recoveraccount">Home</Link> */}
+          <Link to="/recoveraccount">Home</Link>
        </div>
     );
 }

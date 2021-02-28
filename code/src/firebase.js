@@ -1,7 +1,7 @@
 import firebase from 'firebase';
 
 /*Initialize app. Code provided from firebase*/
-export const firebaseApp = firebase.initializeApp({
+const firebaseApp = firebase.initializeApp({
     apiKey: "AIzaSyBABECgLxo0K5A0HVcg8aPLzmWUitkIq_s",
     authDomain: "beej-e0db0.firebaseapp.com",
     projectId: "beej-e0db0",

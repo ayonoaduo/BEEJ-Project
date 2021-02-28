@@ -1,29 +1,12 @@
 import React, {useState} from 'react';
 //import {Button} from '@material-ui/core';
 import firebase from "firebase";
-import logo from './beej.png';
 import {storage, db} from './firebase';
-import Modal from '@material-ui/core/Modal';
-import {makeStyles} from '@material-ui/core/styles';
 import './ImageUpload.css';
 
 
-const useStyles = makeStyles((theme) => ({
-    paper: {
-      position: 'absolute',
-      width: 400,
-      backgroundColor: theme.palette.background.paper,
-      border: '2px solid #000',
-      boxShadow: theme.shadows[5],
-      padding: theme.spacing(2, 4, 3),
-    },
-  }));
-  
-
 
 function ImageUpload({username}) {
-    const classes = useStyles();
-    // getModalStyle is not a pure function, we roll the style only on the first render
     const [caption, setCaption] = useState('');
     const [image, setImage] = useState(null); //state for the progress bar
     const [progress, setProgress] = useState(0);
@@ -68,7 +51,7 @@ function ImageUpload({username}) {
                             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
                             caption: caption,
                             imageUrl: url,
-                            //username: username
+                            username: username
                         });
 
                         setProgress(0); //reset progress
@@ -80,14 +63,15 @@ function ImageUpload({username}) {
     };
 
     return (
-            
         <div className="imageupload">
-        <progress className="imageupload__progress" value={progress} max="100"/>
+            <progress className="imageupload__progress" value={progress} max="100"/>
            <input type="text" placeholder='Enter a caption...' onChange={event => setCaption(event.target.value)} value={caption}/>
            <input type="file" onChange={handleChange} />
-           <button onClick={handleUpload}>Upload</button>
+           <button onClick={handleUpload}>
+            Upload
+           </button>
+
         </div>
-              
     )
 }
 
