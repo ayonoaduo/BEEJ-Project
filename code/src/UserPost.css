@@ -91,3 +91,17 @@ display: block;
   margin-right: 0;
   font-weight: bold;
 }
+
+.userPost_status{
+color: white;
+border-style: solid;
+border-radius: 7px;
+padding-right: 3px; 
+padding-left: 3px;
+padding-bottom: 3px;
+padding-top: 3px;
+margin-left: 230px;
+background-color: green;
+
+
+}

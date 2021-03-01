@@ -10,6 +10,7 @@ function UserPost({
   username,
   caption,
   imageUrl,
+  status,
   keyword,
   uid,
   displayName,
@@ -60,7 +61,11 @@ function UserPost({
           src="/static/images/avatar/1.jpg"
         />
         <h3>{username}</h3>
+        <div className = "userPost_status">
+          <h3>{status}</h3>
       </div>
+      </div>
+      
 
       {/*image*/}
       <img className="userPost__image" src={imageUrl} alt=""></img>
@@ -95,8 +100,8 @@ function UserPost({
             type="submit"
             onClick={postComment}
           >
-            {" "}
-            Post{" "}
+            
+            Post
           </button>
         </form>
       ) : (

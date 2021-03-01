@@ -135,6 +135,7 @@ function Profile() {
               imageUrl: url,
               username: user.displayName,
               keyword: keyword,
+              status: "",
             });
 
             setProgress(0); //reset progress
@@ -361,7 +362,6 @@ function Profile() {
             </center>
             {/* <FormControl className={classes.formControl}>
             
-
         <InputLabel id="demo-controlled-open-select-label">Choose a keyword</InputLabel>
         <Select
           labelId="demo-controlled-open-select-label"
@@ -432,6 +432,7 @@ function Profile() {
                 imageUrl={post.imageUrl}
                 keyword={post.keyword}
                 uid={post.uid}
+                status={post.status}
               ></UserPost>
             ))
           }

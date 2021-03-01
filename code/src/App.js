@@ -21,7 +21,6 @@ function App() {
 
         {/*    <Route exact path='/RecoverAccount' component={RecoverAccount}/> 
           <Route exact path='/ImageUpload' component={ImageUpload}/>
-
           
       <Navbar /> 
       <div className="container mt-2" style={{ marginTop: 40 }}>
