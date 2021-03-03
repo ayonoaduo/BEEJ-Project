@@ -136,6 +136,7 @@ function Profile() {
               username: user.displayName,
               keyword: keyword,
               status: "",
+              reason:"",
             });
 
             setProgress(0); //reset progress
@@ -433,6 +434,7 @@ function Profile() {
                 keyword={post.keyword}
                 uid={post.uid}
                 status={post.status}
+                reason={post.reason}
               ></UserPost>
             ))
           }

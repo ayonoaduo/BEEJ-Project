@@ -11,6 +11,7 @@ function UserPost({
   caption,
   imageUrl,
   status,
+  reason,
   keyword,
   uid,
   displayName,
@@ -63,9 +64,11 @@ function UserPost({
         <h3>{username}</h3>
         <div className = "userPost_status">
           <h3>{status}</h3>
+      
       </div>
       </div>
       
+
 
       {/*image*/}
       <img className="userPost__image" src={imageUrl} alt=""></img>
@@ -74,6 +77,10 @@ function UserPost({
       <h4 className="userPost__text">
         <strong>{username}</strong> {caption}
       </h4>
+      <div className="userPost__reason">
+      <h4>Reason for decline: {reason}</h4>
+      </div>
+
 
       <div className="userPost__comments">
         {comments.map((
@@ -84,6 +91,7 @@ function UserPost({
           </p>
         ))}
       </div>
+
 
       {user?.displayName ? ( //comment box only shows if you are logged in
         <form className="userPost__commentBox">

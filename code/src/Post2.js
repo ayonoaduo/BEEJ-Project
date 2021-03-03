@@ -5,6 +5,8 @@ import Avatar from "@material-ui/core/Avatar";
 import firebase from "firebase";
 import Modal from "@material-ui/core/Modal";
 import { makeStyles } from "@material-ui/core/styles";
+import { Input } from "@material-ui/core";
+
 
 /*Styling for modal. Code from material-ui.com*/
 function getModalStyle() {
@@ -36,6 +38,10 @@ function Post2({ postId, uid, user, username, caption, keyword, imageUrl }) {
   const [comments, setComments] = useState([]); //keep track of the comments
   const [comment, setComment] = useState("");
   const [open, setOpen] = useState(false);
+  const [openDecline, setOpenDecline] = useState(false);
+  //const [openReason, setOpenReason] = useState(false);
+  const [reason, setReason] = useState("");
+
   useEffect(() => {
     let unsubscribe;
     if (postId) {
@@ -72,6 +78,28 @@ function Post2({ postId, uid, user, username, caption, keyword, imageUrl }) {
     });
     setOpen(false);
   };
+
+  const addStatusDecline = () => {
+    //event.preventDefault(); //avoid refresh when upload button is clicked
+    var docRef = db.collection("posts").doc(postId);
+    docRef.update({
+      status: "Declined",
+    });
+    setOpenDecline(false);
+  };
+
+
+  const addReason = () => {
+    //event.preventDefault(); //avoid refresh when upload button is clicked
+    var docRef = db.collection("posts").doc(postId);
+    docRef.update({
+      reason: reason,
+    });
+
+  };
+
+  
+
   return (
     <div className="post">
       {/*header -> avatar + username */}
@@ -96,7 +124,7 @@ function Post2({ postId, uid, user, username, caption, keyword, imageUrl }) {
         onClose={() => setOpen(false)} //onClose method. closes the model when anywhere else on the screen is clicked
       >
         <div style={modalStyle} className={classes.paper}>
-          <h4>Are you sure?</h4>
+          <h4>Do you wish to coninue with the approval?</h4>
           <button type="submit" onClick={addStatus}>
             Yes
           </button>
@@ -107,11 +135,63 @@ function Post2({ postId, uid, user, username, caption, keyword, imageUrl }) {
         </div>
       </Modal>
 
+<Modal // modal for declining report with a reason.
+   open={openDecline}
+   onClose={() => setOpenDecline(false)}
+   >
+       <div style={modalStyle} className={classes.paper}>
+          {/* <label>
+            <input
+              type="radio"
+              value={reason}
+              // checked={this.state.selectedOption === "Male"}
+              onChange={(e) => setReason(e.target.value)}
+            />
+             Spam
+          </label>
+              <h1></h1>
+          <label>
+            <input
+              type="radio"
+              value={reason}
+              //checked={this.state.selectedOption === "reason"}
+              onChange={(e) => setReason(e.target.value)}
+            />
+             Inappropriate
+          </label>
+
+        </div>
+        <label> */}
+
+          
+       <input
+              placeholder="Reason for declining report"
+              type="text"
+              value={reason}
+              onChange={(e) => setReason(e.target.value)}
+            />
+          {<h4>Continue to decline?</h4>}
+          <button type="submit" onClick={() => {addStatusDecline(); addReason();}}>
+            Yes
+          </button>
+          { <button type="submit" onClick={() => setOpenDecline(false)}>
+            {" "}
+            No
+          </button>}
+        </div>
+
+
+</Modal>
+
       <center>
-        <button className="post__button " type="submit">
+        <button className="post__button " 
+        type="submit" 
+        onClick={() => setOpenDecline(true)}
+        >
           {" "}
           Decline{" "}
         </button>
+
         <button
           className="post__button "
           type="submit"

@@ -16,6 +16,11 @@
     padding: 20px;
 }
 
+.userPost__reason{
+    padding: 20px;
+    
+}
+
 .userPost__header{
     display:flex; /*change into a row*/
     align-items: center;
