@@ -197,7 +197,7 @@ function Home() {
       {
 
 
-        Geocode.setApiKey("AIzaSyA8faJEyEJLo8QkFWHjvprH17SPVLJeO8Q");
+        Geocode.setApiKey("xxxxxxxxxxxxxxxxxxx");
         Geocode.setLanguage("en");
     // set location_type filter . Its optional.
     // google geocoder returns more that one address for given lat/lng.

@@ -42,7 +42,7 @@ function Post({ postId, user, username, caption, imageUrl, keyword , address}) {
   };
 
   // useEffect(() => {
-    // Geocode.setApiKey("AIzaSyA8faJEyEJLo8QkFWHjvprH17SPVLJeO8Q");
+    
     // Geocode.setLanguage("en");
     // // set location_type filter . Its optional.
     // // google geocoder returns more that one address for given lat/lng.
