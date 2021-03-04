@@ -12,11 +12,10 @@ import { Input } from "@material-ui/core";
 import AccountCircleOutlinedIcon from "@material-ui/icons/AccountCircleOutlined";
 import EmailOutlinedIcon from "@material-ui/icons/EmailOutlined";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
-
+import Geocode from "react-geocode";
 import BottomNavigation from "@material-ui/core/BottomNavigation";
 import HomeOutlinedIcon from "@material-ui/icons/HomeOutlined";
 import AddBoxOutlinedIcon from "@material-ui/icons/AddBoxOutlined";
-import NotificationsNoneOutlinedIcon from "@material-ui/icons/NotificationsNoneOutlined";
 import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
 
 import { Link } from "react-router-dom";
@@ -25,10 +24,6 @@ import firebase from "firebase";
 import { storage } from "./firebase";
 import "./ImageUpload.css";
 
-import InputLabel from "@material-ui/core/InputLabel";
-import MenuItem from "@material-ui/core/MenuItem";
-import FormControl from "@material-ui/core/FormControl";
-import Select from "@material-ui/core/Select";
 //import Button from '@material-ui/core/Button';
 
 /*Styling for modal. Code from material-ui.com*/
@@ -42,6 +37,9 @@ function getModalStyle() {
     transform: `translate(-${top}%, -${left}%)`,
   };
 }
+
+
+
 const useStyles = makeStyles((theme) => ({
   paper: {
     position: "absolute",
@@ -77,19 +75,10 @@ function Home() {
   const [openProgress, setOpenProgress] = useState(false); //progress bar state
 
   const [keyword, setKeyword] = React.useState("");
-  const [openDropDown, setOpenDropDown] = React.useState(false);
+  //const [, setOpenDropDown] = React.useState(false);
 
-  const handleChangeDropDown = (event) => {
-    setKeyword(event.target.value);
-  };
 
-  const handleCloseDropDown = () => {
-    setOpenDropDown(false);
-  };
 
-  const handleOpenDropDown = () => {
-    setOpenDropDown(true);
-  };
 
   //imageupload functions
   const handleChange = (e) => {
@@ -100,58 +89,207 @@ function Home() {
     }
   };
 
+  useEffect(() => {
+    
+  });
+  
+
+
+  const geoFunction = (event) => {
+     event.preventDefault();
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        console.log("Latitude is :", position.coords.latitude);
+        console.log("Longitude is :", position.coords.longitude);
+
+    // //     db.collection("posts").where("","==","").update({
+    // //       longitude: position.coords.longitude,
+    // //       latitude: position.coords.latitude});
+      })
+       
+        
+      
+      
+    }
+    // // check for Geolocation support
+    // if (navigator.geolocation) {
+    //   console.log("Geolocation is supported!");
+    // } else {
+    //   console.log("Geolocation is not supported for this Browser/OS.");
+    // }
+
+    // window.onload = function () {
+    //   var startPos;
+
+    //   var geoOptions = {
+    //     maximumAge: 5 * 60 * 1000,
+    //     timeout: 10 * 1000,
+    //     enableHighAccuracy: true
+    //   }
+    //   var geoSuccess = function (position) {
+    //     startPos = position;
+    //     document.getElementById("startLat").innerHTML =
+    //       startPos.coords.latitude;
+    //     document.getElementById("startLon").innerHTML =
+    //       startPos.coords.longitude;
+    //   };
+    //   var geoError = function (error) {
+    //     console.log("Error occurred. Error code: " + error.code);
+    //     // error.code can be:
+    //     //   0: unknown error
+    //     //   1: permission denied
+    //     //   2: position unavailable (error response from location provider)
+    //     //   3: timed out
+    //   };
+    //   navigator.geolocation.getCurrentPosition(geoSuccess, geoError, geoOptions);
+    // };
+    // var startPos;
+    // // var nudge = document.getElementById("nudge");
+
+    // var showNudgeBanner = function () {
+    //   document.getElementById("nudge").style.display = "block";
+    // };
+
+    // var hideNudgeBanner = function () {
+    //   document.getElementById("nudge").style.display = "none";
+    // };
+
+    // var nudgeTimeoutId = setTimeout(showNudgeBanner, 5000);
+
+    // var geoSuccess = function (position) {
+    //   hideNudgeBanner();
+    //   // We have the location, don't display banner
+    //   clearTimeout(nudgeTimeoutId);
+
+    //   // Do magic with location
+    //   startPos = position;
+    //   document.getElementById("startLat").innerHTML = startPos.coords.latitude;
+    //   document.getElementById("startLon").innerHTML = startPos.coords.longitude;
+    // };
+    // var geoError = function (error) {
+    //   switch (error.code) {
+    //     case error.TIMEOUT:
+    //       // The user didn't accept the callout
+    //       showNudgeBanner();
+    //       break;
+    //   }
+    // };
+
+    // const location= navigator.geolocation.getCurrentPosition(geoSuccess, geoError);
+
+    
+  };
+
   const handleUpload = (event) => {
     event.preventDefault(); //avoid refresh when upload button is clicked
 
+    if ("geolocation" in navigator) {
+      console.log("Geolocation Available");
+    } else {
+      console.log("Geolocation Not Available");
+    }
+
     //access the storage in firebase, get a references to the folder images/ and store image there
+    if (navigator.geolocation) 
+    {
+      navigator.geolocation.getCurrentPosition(function(position)
+      {
 
-    const uploadTask = storage.ref(`images/${image.name}`).put(image);
 
-    uploadTask.on(
-      "state_changed",
-      /*provide snapshot of the image uploading progress via an equation*/
-      (snapshot) => {
-        //progress function ...
-        const progress = Math.round(
-          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+        Geocode.setApiKey("AIzaSyA8faJEyEJLo8QkFWHjvprH17SPVLJeO8Q");
+        Geocode.setLanguage("en");
+    // set location_type filter . Its optional.
+    // google geocoder returns more that one address for given lat/lng.
+    // In some case we need one address as response for which google itself provides a location_type filter.
+    // So we can easily parse the result for fetching address components
+    // ROOFTOP, RANGE_INTERPOLATED, GEOMETRIC_CENTER, APPROXIMATE are the accepted values.
+    // And according to the below google docs in description, ROOFTOP param returns the most accurate result.
+    //Geocode.setLocationType("ROOFTOP");
+
+    // Enable or disable logs. Its optional.
+    Geocode.enableDebug();
+    Geocode.fromLatLng(position.coords.latitude, position.coords.longitude).then(
+      (response) => {
+        const address = response.results[0].formatted_address;
+        let city, state, country;
+        for (let i = 0; i < response.results[0].address_components.length; i++) {
+          for (let j = 0; j < response.results[0].address_components[i].types.length; j++) {
+            switch (response.results[0].address_components[i].types[j]) {
+              case "locality":
+                city = response.results[0].address_components[i].long_name;
+                break;
+              case "administrative_area_level_1":
+                state = response.results[0].address_components[i].long_name;
+                break;
+              case "country":
+                country = response.results[0].address_components[i].long_name;
+                break;
+            }
+          }
+        }
+        console.log(city, state, country);
+        console.log(address);
+      
+      
+
+
+
+
+        const uploadTask = storage.ref(`images/${image.name}`).put(image);
+        uploadTask.on(
+          "state_changed",
+          /*provide snapshot of the image uploading progress via an equation*/
+          (snapshot) => {
+            //progress function ...
+            const progress = Math.round(
+              (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+            );
+            setProgress(progress);
+          },
+          (error) => {
+            //error function ..
+            console.log(error);
+            alert(error.message);
+          },
+          () => {
+            // complete function ...
+            storage
+              .ref("images")
+              .child(image.name)
+              .getDownloadURL() //GET DOWNLOAD LINK TO THE IMAGE
+              .then((url) => {
+                //post image inside db
+                db.collection("posts").add({
+                  //get server timestamp so images are sorted by time posted
+                  timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+                  caption: caption,
+                  imageUrl: url,
+                  username: user.displayName,
+                  keyword: keyword,
+                  status: "",
+                  longitude: position.coords.longitude,
+                  latitude: position.coords.latitude, 
+                  address: address
+                  //location: startPos.coords.latitude
+                });
+              
+                setProgress(0); //reset progress
+                setCaption("");
+                setImage(null);
+                setKeyword("");
+              });},
+              (error) => {
+                console.error(error);
+              }
+            );
+          }
         );
-        setProgress(progress);
-      },
-      (error) => {
-        //error function ..
-        console.log(error);
-        alert(error.message);
-      },
-      () => {
-        // complete function ...
-        storage
-          .ref("images")
-          .child(image.name)
-          .getDownloadURL() //GET DOWNLOAD LINK TO THE IMAGE
-          .then((url) => {
-            //post image inside db
-            db.collection("posts").add({
-              //get server timestamp so images are sorted by time posted
-              timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-              caption: caption,
-              imageUrl: url,
-              username: user.displayName,
-              keyword: keyword,
-              status: "",
-            });
-
-            setProgress(0); //reset progress
-            setCaption("");
-            setImage(null);
-            setKeyword("");
-          });
-      }
-    );
-
-    setOpenP(false); //close modal after upload
-    setOpenProgress(true); //open progress modal
-    setOpenProgress(false); //never mind, dont show progress bar modal
-  };
+        setOpenP(false); //close modal after upload
+        setOpenProgress(true); //open progress modal
+        setOpenProgress(false); //never mind, dont show progress bar modal
+      });}
+  }
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((authUser) => {
@@ -253,6 +391,7 @@ function Home() {
       : alert("Incorrect passcode");
   };
 
+  
   return (
     <div className="app">
       {/*using BEM naming convetion*/}
@@ -309,6 +448,7 @@ function Home() {
           </form>
         </div>
       </Modal>
+
 
       <Modal //Sign Out and Login Modal
         open={openSignIn} //state to keep track if its open
@@ -393,6 +533,7 @@ function Home() {
               onChange={(event) => setCaption(event.target.value)}
               value={caption}
             />
+            <button type="submit" id="nudge" onClick={geoFunction}>Request GPS</button>
             <input type="file" onChange={handleChange} />
 
             <button onClick={handleUpload}>Upload</button>
@@ -426,15 +567,7 @@ function Home() {
 
         <Modal //Sign Out and Login Modal
           open={openAdmin} //state to keep track if its open
-          onClose={() => setOpenAdmin(false)} //onClose method. closes the model
-          when
-          anywhere
-          else
-          on
-          the
-          screen
-          is
-          clicked
+          onClose={() => setOpenAdmin(false)} //onClose method. closes the model when anywhere else on the screen is clicked
         >
           <div style={modalStyle} className={classes.paper}>
             <form className="app__signup">
@@ -482,6 +615,7 @@ function Home() {
         <div className="app_postsRight">
           {/*Posts*/}
           {
+            
             /*loop through posts in state*/
             posts.map(({ id, post }) => (
               //the key allows the page to only refresh the new post, not all the posts. since each post has its own key
@@ -493,8 +627,11 @@ function Home() {
                 caption={post.caption}
                 imageUrl={post.imageUrl}
                 keyword={post.keyword}
+                address={post.address}
               ></Post>
             ))
+
+            
           }
         </div>
       </div>
