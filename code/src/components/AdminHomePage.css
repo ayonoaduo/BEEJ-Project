@@ -1,0 +1,123 @@
+* {
+  margin: 0;
+}
+
+.adminHomePage {
+  background-color: white;
+  /* height: 100vh; */
+}
+
+.adminHomePage__posts {
+  padding: 20px;
+  justify-content: center;
+  display: flex;
+}
+
+.adminHomePage__button {
+  max-width: 50px;
+  position: fixed;
+  right: 0;
+  top: 76px;
+  border: none;
+  background-color: #e50914;
+  color: #ffffff;
+  font-weight: bold;
+  padding: 8px 0px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: transform 80ms ease-in;
+  cursor: pointer;
+  /* margin: 5px; */
+}
+
+.adminHomePage__buttonLarge {
+  max-width: 204px;
+  position: fixed;
+  right: 0;
+  top: 116px;
+  display: inline;
+  /* border-radius: 20px; */
+  flex: 0; /* take as little room as possible*/
+  border: none;
+  background-color: #e50914;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: bold;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding: 10px 0px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: transform 80ms ease-in;
+  cursor: pointer;
+  /* margin: 5px; */
+}
+
+.adminHomePage__button:hover,
+.adminHomePage__buttonLarge:hover {
+  background-color: black;
+}
+
+/* Mobile-friendly */
+.d2-none {
+  display: none !important;
+}
+.d2-inline {
+  display: inline !important;
+}
+.d2-inline-block {
+  display: inline-block !important;
+}
+.d2-block {
+  display: block !important;
+}
+.d2-table {
+  display: table !important;
+}
+.d2-table-row {
+  display: table-row !important;
+}
+.d2-table-cell {
+  display: table-cell !important;
+}
+.d2-flex {
+  display: -ms-flexbox !important;
+  display: flex !important;
+}
+.d2-inline-flex {
+  display: -ms-inline-flexbox !important;
+  display: inline-flex !important;
+}
+
+/* Desktop-friendly */
+@media (min-width: 992px) {
+  .d2-lg-none {
+    display: none !important;
+  }
+  .d2-lg-inline {
+    display: inline !important;
+  }
+  .d2-lg-inline-block {
+    display: inline-block !important;
+  }
+  .d2-lg-block {
+    display: block !important;
+  }
+  .d2-lg-table {
+    display: table !important;
+  }
+  .d2-lg-table-row {
+    display: table-row !important;
+  }
+  .d2-lg-table-cell {
+    display: table-cell !important;
+  }
+  .d2-lg-flex {
+    display: -ms-flexbox !important;
+    display: flex !important;
+  }
+  .d2-lg-inline-flex {
+    display: -ms-inline-flexbox !important;
+    display: inline-flex !important;
+  }
+}

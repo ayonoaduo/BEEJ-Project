@@ -1,10 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { db } from "./firebase";
-import "./Post.css";
+import "./ProfilePost.css";
 import Avatar from "@material-ui/core/Avatar";
 import firebase from "firebase";
 
-function Post({ postId, user, username, caption, imageUrl, address }) {
+function ProfilePost({
+  postId,
+  user,
+  username,
+  caption,
+  imageUrl,
+  status,
+  reason,
+  address,
+}) {
   const [comments, setComments] = useState([]); //keep track of the comments
   const [comment, setComment] = useState("");
 
@@ -41,30 +50,30 @@ function Post({ postId, user, username, caption, imageUrl, address }) {
   };
 
   return (
-    <div className="post">
+    <div className="profilePost">
       {/*header -> avatar + username */}
-      <div className="post__header">
+      <div className="profilePost__header">
         <Avatar
-          className="post__avatar"
+          className="profilePost__avatar"
           alt={username} /*display the first letter if no picture*/
           src="/static/images/avatar/1.jpg"
         />
         <h3>{username}</h3>
       </div>
 
-      <div className="post__address">
+      <div className="profilePost__address">
         <h5>{address}</h5>
       </div>
 
       {/*image*/}
-      <img className="post__image" src={imageUrl} alt=""></img>
+      <img className="profilePost__image" src={imageUrl} alt=""></img>
 
       {/* username + caption */}
-      <h4 className="post__text">
+      <h4 className="profilePost__text">
         <strong>{username}:</strong> {caption}
       </h4>
 
-      <div className="post__comments">
+      <div className="profilePost__comments">
         {comments.map((
           comment //map through each comment
         ) => (
@@ -74,9 +83,9 @@ function Post({ postId, user, username, caption, imageUrl, address }) {
         ))}
       </div>
 
-      <form className="post__commentBox">
+      <form className="profilePost__commentBox">
         <input
-          className="post__input"
+          className="profilePost__input"
           type="text"
           placeholder="Add a comment..."
           value={comment}
@@ -84,15 +93,54 @@ function Post({ postId, user, username, caption, imageUrl, address }) {
         />
         <button
           disabled={!comment} //disable if there is no comment
-          className="post__button"
+          className="profilePost__button"
           type="submit"
           onClick={postComment}
         >
           Post
         </button>
       </form>
+
+      <div className="profilePost__tracker">
+        <hr></hr> {/*straight line */}
+        {status === "Submitted" ? (
+          <div className="profilePost__trackerSubmitted">
+            <h3>Report Status:</h3> <p>{status}</p>
+          </div>
+        ) : (
+          <h12></h12>
+        )}
+        {status === "Approved" ? (
+          <div className="profilePost__trackerApproved">
+            <h3>Report Status:</h3> <p>In Progress</p>
+          </div>
+        ) : (
+          <h12></h12>
+        )}
+        {status === "Solved" ? (
+          <div className="profilePost__trackerSolved">
+            <h3>Report Status:</h3> <p>{status}</p>
+          </div>
+        ) : (
+          <h12></h12>
+        )}
+        {status === "Declined" ? (
+          <div className="profilePost__trackerDeclined">
+            <h3>Report Status:</h3> <p>{status}</p>
+          </div>
+        ) : (
+          <h12></h12>
+        )}
+        {status === "Declined" ? (
+          <div className="profilePost__declineReason">
+            <h3>Reason for Decline:</h3> <p>{reason}</p>
+          </div>
+        ) : (
+          <h12></h12>
+        )}
+      </div>
     </div>
   );
 }
 
-export default Post;
+export default ProfilePost;

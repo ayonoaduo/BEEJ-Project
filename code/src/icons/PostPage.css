@@ -1,0 +1,124 @@
+.postPage {
+  display: flex;
+  width: 90%;
+  max-width: 800px;
+  /* text-align: center; */
+  margin-left: auto;
+  margin-right: auto;
+  flex-direction: column;
+  padding-top: 8%;
+  /* height: 100vh; */
+}
+
+.postPage > h1 {
+  font-size: 60px;
+  font-weight: 400;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #282c2d;
+}
+
+.postPage__details {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.postPage__details > input {
+  font-size: 16px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  outline: none;
+  margin-left: 8px;
+}
+
+.postPage__location > input {
+  font-size: 16px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 596px;
+  outline: none;
+  margin-left: 8px;
+}
+
+.postPage__button {
+  border: none;
+  background-color: #e50914;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 12px 20px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: transform 80ms ease-in;
+  cursor: pointer;
+  outline-width: none;
+  outline: none;
+  margin-left: 8px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  margin-top: 10px;
+}
+
+.postPage__button:hover {
+  background-color: black;
+  border-color: black;
+}
+
+.postPage__image {
+  border: none;
+  background-color: #e50914;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 12px 20px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: transform 80ms ease-in;
+  cursor: pointer;
+  /* margin: 5px; */
+  margin-right: 5px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  outline-width: none;
+  outline: none;
+}
+
+.postPage__image:hover {
+  background-color: black;
+  border-color: black;
+}
+
+.postPage__buttonInput::-webkit-file-upload-button {
+  border: none;
+  background-color: #e50914;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 12px 20px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: transform 80ms ease-in;
+  cursor: pointer;
+  outline-width: none;
+  outline: none;
+  margin-left: 0px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  margin-top: 10px;
+}
+
+.postPage__buttonInput::-webkit-file-upload-button:hover {
+  border: none;
+  background-color: black;
+}
+
+label {
+  cursor: pointer;
+  /* Style as you please, it will become the visible UI component. */
+}
+
+#upload-photo {
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+}

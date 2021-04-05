@@ -1,0 +1,121 @@
+* {
+  margin: 0;
+}
+
+.profilePage {
+  background-color: white;
+  /* height: 100vh; */
+}
+
+.profilePage__posts {
+  padding: 20px; /*space out the header from the post*/
+  justify-content: center;
+  display: flex;
+}
+
+.profilePage__button {
+  max-width: 50px;
+  position: fixed;
+  right: 0;
+  top: 76px;
+  border: none;
+  background-color: #e50914;
+  color: #ffffff;
+  font-weight: bold;
+  padding: 8px 0px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: transform 80ms ease-in;
+  cursor: pointer;
+  /* margin: 5px; */
+}
+
+.profilePage__buttonLarge {
+  max-width: 126px;
+  position: fixed;
+  right: 0;
+  top: 116px;
+  display: inline;
+  /* border-radius: 20px; */
+  flex: 0; /* take as little room as possible*/
+  border: none;
+  background-color: #e50914;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 10px 0px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: transform 80ms ease-in;
+  cursor: pointer;
+  /* margin: 5px; */
+}
+
+.profilePage__button:hover,
+.profilePage__buttonLarge:hover {
+  background-color: black;
+}
+
+/* Mobile-friendly */
+.d-none {
+  display: none !important;
+}
+.d-inline {
+  display: inline !important;
+}
+.d-inline-block {
+  display: inline-block !important;
+}
+.d-block {
+  display: block !important;
+}
+.d-table {
+  display: table !important;
+}
+.d-table-row {
+  display: table-row !important;
+}
+.d-table-cell {
+  display: table-cell !important;
+}
+.d-flex {
+  display: -ms-flexbox !important;
+  display: flex !important;
+}
+.d-inline-flex {
+  display: -ms-inline-flexbox !important;
+  display: inline-flex !important;
+}
+
+/* Desktop-friendly */
+@media (min-width: 992px) {
+  .d-lg-none {
+    display: none !important;
+  }
+  .d-lg-inline {
+    display: inline !important;
+  }
+  .d-lg-inline-block {
+    display: inline-block !important;
+  }
+  .d-lg-block {
+    display: block !important;
+  }
+  .d-lg-table {
+    display: table !important;
+  }
+  .d-lg-table-row {
+    display: table-row !important;
+  }
+  .d-lg-table-cell {
+    display: table-cell !important;
+  }
+  .d-lg-flex {
+    display: -ms-flexbox !important;
+    display: flex !important;
+  }
+  .d-lg-inline-flex {
+    display: -ms-inline-flexbox !important;
+    display: inline-flex !important;
+  }
+}

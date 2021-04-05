@@ -1,0 +1,107 @@
+.adminPost {
+  max-width: 500px; /*limit to how large post can be*/
+  background-color: white;
+  border: 1px solid lightgray;
+  margin-bottom: 45px; /* creates space between posts*/
+}
+.adminPost__image {
+  width: 100%;
+  object-fit: contain;
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+}
+
+.adminPost__text {
+  font-weight: normal;
+  padding: 20px;
+}
+
+.adminPost__header {
+  display: flex; /*change into a row*/
+  align-items: center;
+  padding: 20px;
+}
+
+.adminPost__avatar {
+  margin-right: 10px; /*create space between avatar and username*/
+}
+
+.adminPost__address {
+  padding: 20px;
+}
+
+.adminPost__status {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  outline-width: none;
+}
+
+.adminPost__decline,
+.adminPost__approve {
+  border-radius: 20px;
+  flex: 0; /*take as little room as possible*/
+  border: none;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 12px 20px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: transform 80ms ease-in;
+  cursor: pointer;
+  margin: 5px;
+  outline: none;
+}
+
+/* color */
+.adminPost__decline {
+  background-color: #e50914;
+}
+
+.adminPost__approve {
+  background-color: #00a300;
+}
+
+.adminPost__decline:hover,
+.adminPost__approve:hover {
+  background-color: black;
+  border-color: black;
+}
+
+.adminPost__headerImage {
+  object-fit: contain;
+}
+
+.adminPost__declineReason {
+  display: flex;
+  flex-direction: column;
+}
+
+.adminPost__declineReason > button {
+  border: none;
+  background-color: #e50914;
+  color: white;
+  font-weight: bold;
+  padding: 7px 7px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: transform 80ms ease-in;
+  cursor: pointer;
+  outline-width: none;
+  border: none;
+  outline: none;
+  margin-top: 10px;
+}
+
+.adminPost__textarea {
+  outline-width: none;
+  outline: none;
+  max-height: "150px";
+  min-height: "80px";
+  width: "100%";
+  resize: "none";
+  padding: "9px";
+  box-sizing: "border-box";
+  font-size: "15px";
+}

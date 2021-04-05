@@ -1,43 +1,43 @@
-.post {
+.profilePost {
   max-width: 500px; /*limit to how large post can be*/
   background-color: white;
   border: 1px solid lightgray;
   margin-bottom: 45px; /* creates space between posts*/
 }
-.post__image {
+.profilePost__image {
   width: 100%;
   object-fit: contain;
   border-top: 1px solid lightgray;
   border-bottom: 1px solid lightgray;
 }
 
-.post__text {
+.profilePost__text {
   font-weight: normal;
   padding: 20px;
 }
 
-.post__header {
+.profilePost__header {
   display: flex; /*change into a row*/
   align-items: center;
   padding: 20px;
 }
 
-.post__avatar {
+.profilePost__avatar {
   margin-right: 10px; /*create space between avatar and username*/
 }
 
-.post__commentBox {
+.profilePost__commentBox {
   margin-top: 10px;
   display: flex;
   outline-width: none;
 }
 
-.post__comments {
+.profilePost__comments {
   padding: 20px;
   outline-width: none;
 }
 
-.post__input {
+.profilePost__input {
   flex: 1; /*take up most of the room*/
   border: none;
   padding: 10px;
@@ -47,7 +47,7 @@
   font-size: 16px;
 }
 
-.post__button {
+.profilePost__button {
   border-radius: 20px;
   flex: 0; /* take as little room as possible*/
   border: none;
@@ -63,28 +63,79 @@
   margin: 5px;
 }
 
-.post__button:active {
+.profilePost__button:active {
   transform: scale(0.95);
 }
 
-.post__button:focus {
+.profilePost__button:focus {
   outline: none;
 }
 
-.post__button:hover {
+.profilePost__button:hover {
   background-color: black;
   border-color: black;
 }
 
-.post__button.ghost {
+.profilePost__button.ghost {
   background-color: transparent;
   border-color: #ffffff;
 }
-.post__button.ghost:hover {
+.profilePost__button.ghost:hover {
   background-color: black;
   border-color: #000;
 }
 
-.post__address {
+.profilePost__tracker {
+  text-align: center;
+}
+
+.profilePost__tracker > h3,
+.profilePost__tracker > p {
+  margin: 10px;
+}
+
+.profilePost__trackerSubmitted > h3,
+.profilePost__trackerSubmitted > p {
+  display: inline;
+}
+
+.profilePost__trackerSubmitted > p {
+  color: blue;
+}
+
+.profilePost__trackerApproved > h3,
+.profilePost__trackerApproved > p {
+  display: inline;
+}
+
+.profilePost__trackerApproved > p {
+  color: green;
+}
+
+.profilePost__trackerSolved > h3,
+.profilePost__trackerSolved > p {
+  display: inline;
+}
+
+.profilePost__trackerDeclined > h3,
+.profilePost__trackerDeclined > p {
+  display: inline;
+}
+
+.profilePost__trackerDeclined > p {
+  color: red;
+}
+
+.profilePost__declineReason {
+  margin: 10px;
+}
+
+.profilePost__trackerSubmitted,
+.profilePost__trackerApproved,
+.profilePost__trackerSolved {
+  margin: 10px;
+}
+
+.profilePost__address {
   padding: 20px;
 }

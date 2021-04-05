@@ -1,0 +1,83 @@
+.signin,
+.signup,
+.resetPassword {
+  max-width: 300px;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  background: rgba(0, 0, 0, 0.85);
+  /* padding: 50px; */
+  padding-top: 50px;
+  padding-right: 50px;
+  padding-left: 50px;
+  padding-bottom: 50px;
+}
+
+.signin > form,
+.signup > form,
+.resetPassword > form {
+  display: grid;
+  flex-direction: column;
+}
+
+.signin > form > h1,
+.signup > form > h1,
+.resetPassword > form > h1 {
+  text-align: left;
+  margin-bottom: 25px;
+}
+
+.signin > form > h4,
+.signup > form > h4,
+.resetPassword > form > h4 {
+  text-align: left;
+  margin-top: 30px;
+}
+
+.signin__gray,
+.signup__gray,
+.resetPassword__gray {
+  color: gray;
+}
+
+.signin__link,
+.signup__link,
+.resetPassword__link {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.signin > form > input,
+.signup > form > input,
+.resetPassword > form > input {
+  flex: 1; /*take up most of the room*/
+  outline-width: none;
+  height: 40px;
+  margin-bottom: 14px;
+  border-radius: 5px;
+  border: none;
+  padding: 5px 15px;
+  outline: none;
+  font-size: 16px;
+}
+
+.signin > form > button,
+.signup > form > button,
+.resetPassword > form > button {
+  padding: 16px 20px;
+  font-size: 1rem;
+  color: #fff;
+  border-radius: 5px;
+  background-color: #e50914;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+  outline-width: 0;
+}
+
+.signin > form > button:hover,
+.signup > form > button:hover,
+.resetPassword > form > button:hover {
+  background-color: black;
+}

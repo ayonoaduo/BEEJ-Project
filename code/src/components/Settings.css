@@ -1,0 +1,194 @@
+.settings {
+  height: 100%;
+}
+
+.settings__button {
+  border: none;
+  background-color: #e50914;
+  color: #ffffff;
+  font-weight: bold;
+  padding: 7px 7px;
+  margin-top: -8px;
+  margin-left: -9px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: transform 80ms ease-in;
+  cursor: pointer;
+  outline-width: none;
+}
+
+.settings__button:hover {
+  background-color: black;
+}
+
+.settings__body {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  /* text-align: center; */
+  /* padding-top: 8%; */
+  max-width: 800px;
+}
+
+.settings__body > h1 {
+  font-size: 60px;
+  font-weight: 400;
+  border-bottom: 1px solid #282c2d;
+  margin-bottom: 20px;
+}
+
+.settings__avatar {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.settings__info {
+  display: flex;
+}
+
+.settings__details {
+  margin-left: 25px;
+  flex: 1;
+}
+
+.settings__details > h2 {
+  font-size: 15px;
+  padding: 15px;
+  padding-left: 20px;
+  color: white;
+  background-color: gray;
+}
+
+.settings__options {
+  margin-top: 20px;
+  outline-width: 0;
+  border: none;
+}
+
+.settings__options > h3 {
+  border-bottom: 1px solid #282c2d;
+  padding-bottom: 10px;
+}
+
+.settings__reset {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  opacity: 0.8;
+  outline-width: 0;
+}
+
+.settings__reset:hover {
+  opacity: 1;
+}
+
+.settings__reset > button {
+  border: none;
+  background-color: #e50914;
+  color: #ffffff;
+  font-weight: 600;
+  padding: 10px 20px;
+  cursor: pointer;
+  outline-width: none;
+}
+
+.settings__avatar {
+  height: 100px;
+}
+
+.settings__signOut {
+  border: none;
+  background-color: #e50914;
+  color: #ffffff;
+  font-weight: bold;
+  padding: 10px 20px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: transform 80ms ease-in;
+  cursor: pointer;
+  outline-width: none;
+  width: 100%;
+  margin-top: 5%;
+}
+
+.settings__code {
+  display: flex;
+  flex-direction: column;
+}
+
+.settings__headerImage {
+  object-fit: contain;
+}
+
+.settings__submitButton {
+  border: none;
+  background-color: #e50914;
+  color: #ffffff;
+  font-weight: bold;
+  padding: 7px 7px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: transform 80ms ease-in;
+  cursor: pointer;
+  outline-width: none;
+  border: none;
+  outline: none;
+  margin-top: 10px;
+}
+
+.settings__submitButton:hover {
+  background-color: black;
+}
+
+.checkmark {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: block;
+  stroke-width: 5;
+  stroke: #fff;
+  stroke-miterlimit: 10;
+  margin: 10% auto;
+  box-shadow: inset 0px 0px 0px #7ac142;
+  animation: fill 0.4s ease-in-out 0.4s forwards,
+    scale 0.3s ease-in-out 0.9s both;
+}
+
+.checkmark__circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  stroke-width: 2;
+  stroke-miterlimit: 10;
+  stroke: #00a300;
+  fill: none;
+  animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.checkmark__check {
+  transform-origin: 50% 50%;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+}
+
+@keyframes stroke {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes scale {
+  0%,
+  100% {
+    transform: none;
+  }
+  50% {
+    transform: scale3d(1.1, 1.1, 1);
+  }
+}
+@keyframes fill {
+  100% {
+    box-shadow: inset 0px 0px 0px 40px #00a300;
+  }
+}

@@ -1,0 +1,108 @@
+.reportSubmitted {
+  /* height: 100vh; */
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  /* padding-top: 3%; */
+  max-width: 800px;
+  width: 55%;
+}
+
+.reportSubmitted > h1 {
+  text-align: center;
+  font-size: 60px;
+  font-weight: 400;
+  border-bottom: 1px solid #282c2d;
+  margin-bottom: 20px;
+}
+
+.reportSubmitted__details {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.reportSubmitted__details > h2 {
+  font-size: 40px;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.reportSubmitted__details > h3 {
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.reportSubmitted__button {
+  border: none;
+  background-color: #e50914;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 12px 20px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: transform 80ms ease-in;
+  cursor: pointer;
+  margin: 5px;
+  outline-width: none;
+}
+
+.reportSubmitted__button:hover {
+  background-color: black;
+  border-color: black;
+}
+
+.checkmark {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: block;
+  stroke-width: 5;
+  stroke: #fff;
+  stroke-miterlimit: 10;
+  margin: 10% auto;
+  box-shadow: inset 0px 0px 0px #7ac142;
+  animation: fill 0.4s ease-in-out 0.4s forwards,
+    scale 0.3s ease-in-out 0.9s both;
+}
+
+.checkmark__circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  stroke-width: 2;
+  stroke-miterlimit: 10;
+  stroke: #00a300;
+  fill: none;
+  animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.checkmark__check {
+  transform-origin: 50% 50%;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+}
+
+@keyframes stroke {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes scale {
+  0%,
+  100% {
+    transform: none;
+  }
+  50% {
+    transform: scale3d(1.1, 1.1, 1);
+  }
+}
+@keyframes fill {
+  100% {
+    box-shadow: inset 0px 0px 0px 40px #00a300;
+  }
+}

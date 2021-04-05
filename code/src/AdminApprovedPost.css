@@ -1,0 +1,112 @@
+.adminApprovedPost {
+  max-width: 500px; /*limit to how large post can be*/
+  background-color: white;
+  border: 1px solid lightgray;
+  margin-bottom: 45px; /* creates space between posts*/
+}
+.adminApprovedPost__image {
+  width: 100%;
+  object-fit: contain;
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+}
+
+.adminApprovedPost__text {
+  font-weight: normal;
+  padding: 20px;
+}
+
+.adminApprovedPost__header {
+  display: flex; /*change into a row*/
+  align-items: center;
+  padding: 20px;
+}
+
+.adminApprovedPost__avatar {
+  margin-right: 10px; /*create space between avatar and username*/
+}
+
+.adminApprovedPost__address {
+  padding: 20px;
+}
+
+.adminApprovedPost__status {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  outline-width: none;
+}
+
+.adminApprovedPost__status > h2 {
+  margin-top: 8px;
+  margin-left: 20px;
+}
+
+.adminApprovedPost__decline,
+.adminApprovedPost__approve {
+  border-radius: 20px;
+  flex: 0; /*take as little room as possible*/
+  border: none;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 12px 20px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: transform 80ms ease-in;
+  cursor: pointer;
+  margin: 5px;
+  outline: none;
+}
+
+/* color */
+.adminApprovedPost__decline {
+  background-color: #e50914;
+}
+
+.adminApprovedPost__approve {
+  background-color: #00a300;
+}
+
+.adminApprovedPost__decline:hover,
+.adminApprovedPost__approve:hover {
+  background-color: black;
+  border-color: black;
+}
+
+.adminApprovedPost__headerImage {
+  object-fit: contain;
+}
+
+.adminApprovedPost__declineReason {
+  display: flex;
+  flex-direction: column;
+}
+
+.adminApprovedPost__declineReason > button {
+  border: none;
+  background-color: #e50914;
+  color: white;
+  font-weight: bold;
+  padding: 7px 7px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: transform 80ms ease-in;
+  cursor: pointer;
+  outline-width: none;
+  border: none;
+  outline: none;
+  margin-top: 10px;
+}
+
+.adminApprovedPost__textarea {
+  outline-width: none;
+  outline: none;
+  max-height: "150px";
+  min-height: "80px";
+  width: "100%";
+  resize: "none";
+  padding: "9px";
+  box-sizing: "border-box";
+  font-size: "15px";
+}
