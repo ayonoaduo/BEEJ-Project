@@ -60,6 +60,7 @@ function AdminHomePage(user) {
       </Button>
       <div className="adminHomePage__posts">
         <div className="adminHomePage_postsRight">
+          <h1>Admin Homepage</h1>
           {/*Posts*/}
           {
             /*loop through posts in state*/

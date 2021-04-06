@@ -7,11 +7,10 @@ import Geocode from "react-geocode";
 import { Button } from "@material-ui/core";
 import { config } from "../config";
 
-/* This function handles all PostPage tasks, whcih include defining your problem, uploading an image,
+/* This function handles all PostPage tasks, whcih include defining your problem, uploading an image
  * requesting your gps location and then pressing submit.   */
 function PostPage({
   user,
-  progress,
   setProgress,
   setAddress,
   address,
@@ -22,7 +21,7 @@ function PostPage({
 }) {
   const [caption, setCaption] = useState("");
   const [image, setImage] = useState(null);
-  const [status, setStatus] = React.useState(""); //state to keep track of post status
+  const [, setStatus] = React.useState(""); //state to keep track of post status
 
   const mykey = config.API_KEY;
 

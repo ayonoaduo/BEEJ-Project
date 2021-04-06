@@ -3,7 +3,7 @@
 }
 
 .adminHomePage {
-  background-color: white;
+  background-color: #dcdcdc;
   /* height: 100vh; */
 }
 
@@ -13,13 +13,20 @@
   display: flex;
 }
 
+.adminHomePage_postsRight > h1 {
+  text-align: center;
+  font-weight: 400;
+  border-bottom: 1px solid #282c2d;
+  margin-bottom: 20px;
+}
+
 .adminHomePage__button {
   max-width: 50px;
   position: fixed;
   right: 0;
   top: 76px;
   border: none;
-  background-color: #e50914;
+  background-color: #000;
   color: #ffffff;
   font-weight: bold;
   padding: 8px 0px;
@@ -39,7 +46,7 @@
   /* border-radius: 20px; */
   flex: 0; /* take as little room as possible*/
   border: none;
-  background-color: #e50914;
+  background-color: #000;
   color: #ffffff;
   font-size: 12px;
   font-weight: bold;
@@ -55,7 +62,7 @@
 
 .adminHomePage__button:hover,
 .adminHomePage__buttonLarge:hover {
-  background-color: black;
+  opacity: 0.5;
 }
 
 /* Mobile-friendly */

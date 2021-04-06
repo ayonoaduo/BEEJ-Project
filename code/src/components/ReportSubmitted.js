@@ -6,6 +6,7 @@ import Button from "@material-ui/core/Button";
 /* This function handles the Report submitted page.
  * This page is displayed when a user successfully submits their report.
  * Users are able to go to their profile page from here*/
+
 function ReportSubmitted() {
   return (
     <div className="reportSubmitted">

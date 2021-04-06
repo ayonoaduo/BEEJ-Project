@@ -60,6 +60,7 @@ function AdminApprovedPage(user) {
       </Button>
       <div className="adminApprovedPage__posts">
         <div className="adminApprovedPage_postsRight">
+          <h1>Reports In Progress</h1>
           {/*Posts*/}
           {
             /*loop through posts in state*/

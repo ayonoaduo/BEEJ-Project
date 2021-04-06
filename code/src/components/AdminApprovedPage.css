@@ -5,7 +5,8 @@
 }
 
 .adminApprovedPage {
-  background-color: white;
+  background-color: #dcdcdc;
+
   /* height: 100vh; */
 }
 
@@ -15,13 +16,20 @@
   display: flex;
 }
 
+.adminApprovedPage_postsRight > h1 {
+  text-align: center;
+  font-weight: 400;
+  border-bottom: 1px solid #282c2d;
+  margin-bottom: 20px;
+}
+
 .adminApprovedPage__button {
   max-width: 50px;
   position: fixed;
   left: 0;
   top: 76px;
   border: none;
-  background-color: #e50914;
+  background-color: #000;
   color: #ffffff;
   font-weight: bold;
   padding: 8px 0px;
@@ -29,7 +37,6 @@
   text-transform: uppercase;
   transition: transform 80ms ease-in;
   cursor: pointer;
-  /* margin: 5px; */
 }
 
 .adminApprovedPage__buttonLarge {
@@ -38,10 +45,9 @@
   left: 0;
   top: 116px;
   display: inline;
-  /* border-radius: 20px; */
   flex: 0; /* take as little room as possible*/
   border: none;
-  background-color: #e50914;
+  background-color: #000;
   color: #ffffff;
   font-size: 12px;
   font-weight: bold;
@@ -52,12 +58,11 @@
   text-transform: uppercase;
   transition: transform 80ms ease-in;
   cursor: pointer;
-  /* margin: 5px; */
 }
 
 .adminApprovedPage__button:hover,
 .adminApprovedPage__buttonLarge:hover {
-  background-color: black;
+  opacity: 0.5;
 }
 
 /* Mobile-friendly */

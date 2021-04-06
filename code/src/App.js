@@ -11,19 +11,23 @@ import AdminApprovedPage from "./components/AdminApprovedPage";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { auth } from "./firebase";
 
-/* This function keeps all page navigation within the session of the webpage. */
+/* This function keeps all page navigation within the session of the webpage.
+Through the use of React Router, we are able to build a single-page web application with navigation
+without the page refreshing as the user navigates.
+React Router uses component structure to call components, which display the appropriate information.
+*/
 function App() {
   const [user, setUser] = useState(null); //state to keep track of the user
-  const [username, setUsername] = useState("");
+  const [username, setUsername] = useState(""); //state to keep track of username
   const [resetPass, setResetPass] = useState(false); //state to check if the user wants to reset password
   const [signInYes, setSignIn] = useState(true); // state to check if the user wants to sign in
   const [signUpYes, setSignUp] = useState(false); //state to check if the user wants to sign up
-  const [progress, setProgress] = useState(0);
-  const [address, setAddress] = React.useState("");
-  const [neighborhood, setNeighborhood] = React.useState("");
-  const [street, setStreet] = React.useState("");
-  const emailRef = useRef(null);
-  const passwordRef = useRef(null);
+  const [progress, setProgress] = useState(0); //state to keep track of the progress bar
+  const [address, setAddress] = React.useState(""); //state to set the address value
+  const [neighborhood, setNeighborhood] = React.useState(""); //state to set the neighborhood value
+  const [street, setStreet] = React.useState(""); //state to set the street value
+  const emailRef = useRef(null); //value for the user's email
+  const passwordRef = useRef(null); //value for the user's password
 
   useEffect(() => {
     //listener for any authentication state change
@@ -53,7 +57,8 @@ function App() {
     };
   }, [user, username]);
 
-  //function "register" is fired up when the user tries to sign up
+  /*function "register" is fired up when the user tries to sign up
+  The function creates the user in firebase*/
   const register = (e) => {
     e.preventDefault(); //prevent refresh when button is clicked
 
@@ -69,7 +74,7 @@ function App() {
         },
         //if email wasnt sent
         function (error) {
-          //An error happened
+          //An error happened. Print error message to console
           alert(error.message);
         }
       )
@@ -82,6 +87,8 @@ function App() {
       });
   };
 
+  /*  function "signIn" is fired up when the user tries to sign in
+  The function signs the user into the app */
   const signIn = (e) => {
     e.preventDefault();
     auth
@@ -98,7 +105,7 @@ function App() {
   return (
     <div className="app">
       <Router>
-        {user ? ( //does the user exist? show app
+        {user ? ( //does the user exist? show app features except authentication screen
           <div>
             {/* display the navigation bar if the user exists */}
             <Navigation
@@ -110,6 +117,7 @@ function App() {
             />
 
             <Switch>
+              {/* React Router uses component structure to call components, which display the appropriate information */}
               {/* The following route statements call the appropriate components that display the required info for each page */}
               <Route exact path="/">
                 <HomePage
@@ -183,7 +191,7 @@ function App() {
             </Switch>
           </div>
         ) : (
-          //else show authentication screen
+          //else, if the user does not exist or is signed out, show the authentication screen
           <Authentication
             signUpYes={signUpYes}
             setSignUp={setSignUp}
