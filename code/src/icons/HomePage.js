@@ -10,7 +10,7 @@ import ListIcon from "@material-ui/icons/List";
 import Select from "@material-ui/core/Select";
 import { makeStyles } from "@material-ui/core/styles";
 import Geocode from "react-geocode";
-
+import { config } from "../config";
 const useStyles = makeStyles((theme) => ({
   paper: {
     position: "absolute",
@@ -41,7 +41,7 @@ function HomePage({
   const handleChangeDropDown = (event) => {
     setKeyword(event.target.value);
   };
-
+  const mykey = config.API_KEY;
   const noFilter = (event) => {
     db.collection("posts")
       .where("status", "==", "Approved")
@@ -60,67 +60,38 @@ function HomePage({
   const streetFilter = (event) => {
     // Get the user's current location
     event.preventDefault();
+
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function (position) {
-        console.log("Latitude is :", position.coords.latitude);
-        console.log("Longitude is :", position.coords.longitude);
-      });
-    }
-    if ("geolocation" in navigator) {
-      console.log("Geolocation Available");
-    } else {
-      console.log("Geolocation Not Available");
-    }
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(function (position) {
-        Geocode.setApiKey("AIzaSyA8faJEyEJLo8QkFWHjvprH17SPVLJeO8Q");
+        Geocode.setApiKey(mykey);
         Geocode.setLanguage("en");
         Geocode.enableDebug();
         Geocode.fromLatLng(
           position.coords.latitude,
           position.coords.longitude
-        ).then(
-          (response) => {
-            setAddress(response.results[0].formatted_address);
-            let city, state, country;
+        ).then((response) => {
+          setAddress(response.results[0].formatted_address);
+          for (
+            let i = 0;
+            i < response.results[0].address_components.length;
+            i++
+          ) {
             for (
-              let i = 0;
-              i < response.results[0].address_components.length;
-              i++
+              let j = 0;
+              j < response.results[0].address_components[i].types.length;
+              j++
             ) {
-              for (
-                let j = 0;
-                j < response.results[0].address_components[i].types.length;
-                j++
-              ) {
-                switch (response.results[0].address_components[i].types[j]) {
-                  case "locality":
-                    city = response.results[0].address_components[i].long_name;
-                    break;
-                  case "administrative_area_level_1":
-                    state = response.results[0].address_components[i].long_name;
-                    break;
-                  case "country":
-                    country =
-                      response.results[0].address_components[i].long_name;
-                    break;
-                  case "route":
-                    setStreet(
-                      response.results[0].address_components[i].long_name
-                    );
-                    break;
-                  default:
-                }
+              switch (response.results[0].address_components[i].types[j]) {
+                case "route":
+                  setStreet(
+                    response.results[0].address_components[i].long_name
+                  );
+                  break;
+                default:
               }
             }
-            console.log(city, state, country);
-            console.log(address);
-            console.log(neighborhood);
-          },
-          (error) => {
-            console.error(error);
           }
-        );
+        });
       });
     }
     db.collection("posts")
@@ -143,66 +114,39 @@ function HomePage({
   useEffect(() => {
     //get current location
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(function (position) {
-        console.log("Latitude is :", position.coords.latitude);
-        console.log("Longitude is :", position.coords.longitude);
-      });
-    }
-    if ("geolocation" in navigator) {
-      console.log("Geolocation Available");
-    } else {
-      console.log("Geolocation Not Available");
+      navigator.geolocation.getCurrentPosition(function (position) {});
     }
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function (position) {
-        Geocode.setApiKey("AIzaSyA8faJEyEJLo8QkFWHjvprH17SPVLJeO8Q");
+        Geocode.setApiKey(mykey);
         Geocode.setLanguage("en");
         Geocode.enableDebug();
         Geocode.fromLatLng(
           position.coords.latitude,
           position.coords.longitude
-        ).then(
-          (response) => {
-            setAddress(response.results[0].formatted_address);
-            let city, state, country;
+        ).then((response) => {
+          setAddress(response.results[0].formatted_address);
+          for (
+            let i = 0;
+            i < response.results[0].address_components.length;
+            i++
+          ) {
             for (
-              let i = 0;
-              i < response.results[0].address_components.length;
-              i++
+              let j = 0;
+              j < response.results[0].address_components[i].types.length;
+              j++
             ) {
-              for (
-                let j = 0;
-                j < response.results[0].address_components[i].types.length;
-                j++
-              ) {
-                switch (response.results[0].address_components[i].types[j]) {
-                  case "locality":
-                    city = response.results[0].address_components[i].long_name;
-                    break;
-                  case "administrative_area_level_1":
-                    state = response.results[0].address_components[i].long_name;
-                    break;
-                  case "country":
-                    country =
-                      response.results[0].address_components[i].long_name;
-                    break;
-                  case "route":
-                    setStreet(
-                      response.results[0].address_components[i].long_name
-                    );
-                    break;
-                  default:
-                }
+              switch (response.results[0].address_components[i].types[j]) {
+                case "route":
+                  setStreet(
+                    response.results[0].address_components[i].long_name
+                  );
+                  break;
+                default:
               }
             }
-            console.log(city, state, country);
-            console.log(address);
-            console.log(neighborhood);
-          },
-          (error) => {
-            console.error(error);
           }
-        );
+        });
       });
     }
     db.collection("posts")
@@ -225,65 +169,38 @@ function HomePage({
     event.preventDefault();
     //get current location
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(function (position) {
-        console.log("Latitude is :", position.coords.latitude);
-        console.log("Longitude is :", position.coords.longitude);
-      });
-    }
-    if ("geolocation" in navigator) {
-      console.log("Geolocation Available");
-    } else {
-      console.log("Geolocation Not Available");
+      navigator.geolocation.getCurrentPosition(function (position) {});
     }
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function (position) {
-        Geocode.setApiKey("AIzaSyA8faJEyEJLo8QkFWHjvprH17SPVLJeO8Q");
+        Geocode.setApiKey(mykey);
         Geocode.setLanguage("en");
         Geocode.enableDebug();
         Geocode.fromLatLng(
           position.coords.latitude,
           position.coords.longitude
-        ).then(
-          (response) => {
-            setAddress(response.results[0].formatted_address);
-            let city, state, country;
+        ).then((response) => {
+          setAddress(response.results[0].formatted_address);
+          for (
+            let i = 0;
+            i < response.results[0].address_components.length;
+            i++
+          ) {
             for (
-              let i = 0;
-              i < response.results[0].address_components.length;
-              i++
+              let j = 0;
+              j < response.results[0].address_components[i].types.length;
+              j++
             ) {
-              for (
-                let j = 0;
-                j < response.results[0].address_components[i].types.length;
-                j++
-              ) {
-                switch (response.results[0].address_components[i].types[j]) {
-                  case "locality":
-                    city = response.results[0].address_components[i].long_name;
-                    break;
-                  case "administrative_area_level_1":
-                    state = response.results[0].address_components[i].long_name;
-                    break;
-                  case "country":
-                    country =
-                      response.results[0].address_components[i].long_name;
-                    break;
-                  case "neighborhood":
-                    setNeighborhood(
-                      response.results[0].address_components[i].long_name
-                    );
-                    break;
-                }
+              switch (response.results[0].address_components[i].types[j]) {
+                case "neighborhood":
+                  setNeighborhood(
+                    response.results[0].address_components[i].long_name
+                  );
+                  break;
               }
             }
-            console.log(city, state, country);
-            console.log(address);
-            console.log(neighborhood);
-          },
-          (error) => {
-            console.error(error);
           }
-        );
+        });
       });
     }
     db.collection("posts")
@@ -305,65 +222,38 @@ function HomePage({
   useEffect(() => {
     //get current location
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(function (position) {
-        console.log("Latitude is :", position.coords.latitude);
-        console.log("Longitude is :", position.coords.longitude);
-      });
-    }
-    if ("geolocation" in navigator) {
-      console.log("Geolocation Available");
-    } else {
-      console.log("Geolocation Not Available");
+      navigator.geolocation.getCurrentPosition(function (position) {});
     }
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function (position) {
-        Geocode.setApiKey("AIzaSyA8faJEyEJLo8QkFWHjvprH17SPVLJeO8Q");
+        Geocode.setApiKey(mykey);
         Geocode.setLanguage("en");
         Geocode.enableDebug();
         Geocode.fromLatLng(
           position.coords.latitude,
           position.coords.longitude
-        ).then(
-          (response) => {
-            setAddress(response.results[0].formatted_address);
-            let city, state, country;
+        ).then((response) => {
+          setAddress(response.results[0].formatted_address);
+          for (
+            let i = 0;
+            i < response.results[0].address_components.length;
+            i++
+          ) {
             for (
-              let i = 0;
-              i < response.results[0].address_components.length;
-              i++
+              let j = 0;
+              j < response.results[0].address_components[i].types.length;
+              j++
             ) {
-              for (
-                let j = 0;
-                j < response.results[0].address_components[i].types.length;
-                j++
-              ) {
-                switch (response.results[0].address_components[i].types[j]) {
-                  case "locality":
-                    city = response.results[0].address_components[i].long_name;
-                    break;
-                  case "administrative_area_level_1":
-                    state = response.results[0].address_components[i].long_name;
-                    break;
-                  case "country":
-                    country =
-                      response.results[0].address_components[i].long_name;
-                    break;
-                  case "neighborhood":
-                    setNeighborhood(
-                      response.results[0].address_components[i].long_name
-                    );
-                    break;
-                }
+              switch (response.results[0].address_components[i].types[j]) {
+                case "neighborhood":
+                  setNeighborhood(
+                    response.results[0].address_components[i].long_name
+                  );
+                  break;
               }
             }
-            console.log(city, state, country);
-            console.log(address);
-            console.log(neighborhood);
-          },
-          (error) => {
-            console.error(error);
           }
-        );
+        });
       });
     }
     db.collection("posts")
@@ -381,8 +271,7 @@ function HomePage({
       });
   }, []); //[] symbol means run the code once;
 
-  //useEffect runs a piece of code based on a specific
-  //condition
+  //useEffect runs a piece of code based on a specific condition
   useEffect(() => {
     //this is where the code runs
     //snapshot is a powerful listener that will run the code when a post is made

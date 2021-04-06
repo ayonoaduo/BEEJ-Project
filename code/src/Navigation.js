@@ -114,7 +114,7 @@ const Navigation = ({ user, setSignIn, setSignUp, progress, setProgress }) => {
             role="navigation"
           >
             <div className=" d-flex flex-row justify-content-around w-100">
-              {                                                                                                                                                                                                                                                  .map((tab, index) => (
+              {tabs.map((tab, index) => (
                 <nav-item key={`tab-${index}`}>
                   <NavLink
                     to={tab.route}
