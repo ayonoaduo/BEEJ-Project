@@ -5,12 +5,11 @@ import { db } from "../firebase";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
-import IconButton from "@material-ui/core/IconButton";
-import ListIcon from "@material-ui/icons/List";
 import Select from "@material-ui/core/Select";
 import { makeStyles } from "@material-ui/core/styles";
 import Geocode from "react-geocode";
 import { config } from "../config";
+
 const useStyles = makeStyles((theme) => ({
   paper: {
     position: "absolute",
@@ -22,10 +21,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+/* This function handles all HomePage tasks except pulling posts from the database,
+ * which is done by Post.js.  */
+
 function HomePage({
   user,
-  username,
-  address,
   setAddress,
   setStreet,
   street,
@@ -33,7 +33,6 @@ function HomePage({
   neighborhood,
 }) {
   /*states...how we set variables in react*/
-  const [filter, setFilter] = useState("");
   const [posts, setPosts] = useState([]);
   const [keyword, setKeyword] = React.useState("");
   const [openDropDown, setOpenDropDown] = React.useState(false);
@@ -42,6 +41,12 @@ function HomePage({
     setKeyword(event.target.value);
   };
   const mykey = config.API_KEY;
+
+  /** This handles "No filtering".
+   ** Used when user does not want Neighbourhood/Street filtering.
+   ** It is trigerred by clicking the 'None' filter button.
+   ** It uses Google's Geocode API to find the current location of the user.
+   **/
   const noFilter = (event) => {
     db.collection("posts")
       .where("status", "==", "Approved")
@@ -57,6 +62,10 @@ function HomePage({
       });
   };
 
+  /** This handles  street filtering.
+   ** It is trigerred by clicking the 'Street' filter button.
+   ** It uses Google's Geocode API to find the current location of the user.
+   **/
   const streetFilter = (event) => {
     // Get the user's current location
     event.preventDefault();
@@ -97,7 +106,6 @@ function HomePage({
     db.collection("posts")
       .where("street", "==", street)
       .where("status", "==", "Approved")
-
       .orderBy("timestamp", "desc")
       .onSnapshot((snapshot) => {
         //everytime a new post is added, this code fires...
@@ -113,9 +121,7 @@ function HomePage({
   /* ******** useEffect For Street Filter ************** */
   useEffect(() => {
     //get current location
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(function (position) {});
-    }
+
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function (position) {
         Geocode.setApiKey(mykey);
@@ -124,35 +130,39 @@ function HomePage({
         Geocode.fromLatLng(
           position.coords.latitude,
           position.coords.longitude
-        ).then((response) => {
-          setAddress(response.results[0].formatted_address);
-          for (
-            let i = 0;
-            i < response.results[0].address_components.length;
-            i++
-          ) {
+        ).then(
+          (response) => {
+            setAddress(response.results[0].formatted_address);
             for (
-              let j = 0;
-              j < response.results[0].address_components[i].types.length;
-              j++
+              let i = 0;
+              i < response.results[0].address_components.length;
+              i++
             ) {
-              switch (response.results[0].address_components[i].types[j]) {
-                case "route":
-                  setStreet(
-                    response.results[0].address_components[i].long_name
-                  );
-                  break;
-                default:
+              for (
+                let j = 0;
+                j < response.results[0].address_components[i].types.length;
+                j++
+              ) {
+                switch (response.results[0].address_components[i].types[j]) {
+                  case "route":
+                    setStreet(
+                      response.results[0].address_components[i].long_name
+                    );
+                    break;
+                  default:
+                }
               }
             }
+          },
+          (error) => {
+            console.error(error);
           }
-        });
+        );
       });
     }
     db.collection("posts")
       .where("street", "==", street)
       .where("status", "==", "Approved")
-
       .orderBy("timestamp", "desc")
       .onSnapshot((snapshot) => {
         //everytime a new post is added, this code fires...
@@ -168,9 +178,7 @@ function HomePage({
   const neighborhoodFilter = (event) => {
     event.preventDefault();
     //get current location
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(function (position) {});
-    }
+
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function (position) {
         Geocode.setApiKey(mykey);
@@ -221,9 +229,7 @@ function HomePage({
   /* ******** useEffect For Neighborhood Filter ************** */
   useEffect(() => {
     //get current location
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(function (position) {});
-    }
+
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function (position) {
         Geocode.setApiKey(mykey);
@@ -299,14 +305,6 @@ function HomePage({
           >
             Filter By
           </InputLabel>
-
-          <IconButton
-            size="large"
-            id="demo-controlled-open-select-label"
-            classes={{ label: "profilePage__button d-block d-lg-none" }}
-          >
-            <ListIcon />
-          </IconButton>
 
           <Select
             labelId="demo-controlled-open-select-label"

@@ -5,7 +5,10 @@ import { storage, db } from "../firebase";
 import "./PostPage.css";
 import Geocode from "react-geocode";
 import { Button } from "@material-ui/core";
+import { config } from "../config";
 
+/* This function handles all PostPage tasks, whcih include defining your problem, uploading an image,
+ * requesting your gps location and then pressing submit.   */
 function PostPage({
   user,
   progress,
@@ -20,6 +23,9 @@ function PostPage({
   const [caption, setCaption] = useState("");
   const [image, setImage] = useState(null);
   const [status, setStatus] = React.useState(""); //state to keep track of post status
+
+  const mykey = config.API_KEY;
+
   const handleChange = (e) => {
     //handleChange function fires off an event
     if (e.target.files[0]) {
@@ -33,20 +39,7 @@ function PostPage({
 
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function (position) {
-        console.log("Latitude is :", position.coords.latitude);
-        console.log("Longitude is :", position.coords.longitude);
-      });
-    }
-
-    if ("geolocation" in navigator) {
-      console.log("Geolocation Available");
-    } else {
-      console.log("Geolocation Not Available");
-    }
-
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(function (position) {
-        Geocode.setApiKey("AIzaSyA8faJEyEJLo8QkFWHjvprH17SPVLJeO8Q");
+        Geocode.setApiKey(mykey);
         Geocode.setLanguage("en");
         Geocode.enableDebug();
         Geocode.fromLatLng(
@@ -55,7 +48,6 @@ function PostPage({
         ).then(
           (response) => {
             setAddress(response.results[0].formatted_address);
-            let city, state, country;
             for (
               let i = 0;
               i < response.results[0].address_components.length;
@@ -67,16 +59,6 @@ function PostPage({
                 j++
               ) {
                 switch (response.results[0].address_components[i].types[j]) {
-                  case "locality":
-                    city = response.results[0].address_components[i].long_name;
-                    break;
-                  case "administrative_area_level_1":
-                    state = response.results[0].address_components[i].long_name;
-                    break;
-                  case "country":
-                    country =
-                      response.results[0].address_components[i].long_name;
-                    break;
                   case "neighborhood":
                     setNeighborhood(
                       response.results[0].address_components[i].long_name
@@ -87,12 +69,10 @@ function PostPage({
                       response.results[0].address_components[i].long_name
                     );
                     break;
+                  default:
                 }
               }
             }
-            console.log(city, state, country);
-            console.log(address);
-            console.log(neighborhood);
           },
           (error) => {
             console.error(error);

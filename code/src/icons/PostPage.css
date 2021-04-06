@@ -2,12 +2,10 @@
   display: flex;
   width: 90%;
   max-width: 800px;
-  /* text-align: center; */
   margin-left: auto;
   margin-right: auto;
   flex-direction: column;
   padding-top: 8%;
-  /* height: 100vh; */
 }
 
 .postPage > h1 {
@@ -75,7 +73,6 @@
   text-transform: uppercase;
   transition: transform 80ms ease-in;
   cursor: pointer;
-  /* margin: 5px; */
   margin-right: 5px;
   margin-bottom: 5px;
   margin-top: 5px;

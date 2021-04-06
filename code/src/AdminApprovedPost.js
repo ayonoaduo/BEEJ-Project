@@ -7,6 +7,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import logo from "./images/beej-black.png";
 import DescriptionOutlinedIcon from "@material-ui/icons/DescriptionOutlined";
 
+/* This function allows the City of Regina employees to view and change the status of reports*/
 function AdminApprovedPost({
   postId,
   user,
@@ -89,12 +90,13 @@ function AdminApprovedPost({
         <strong>{username}:</strong> {caption}
       </h4>
 
+      {/*Button to indicate if Report is completed*/}
       <div className="adminApprovedPost__status">
         <h2>Report Completed?</h2>
         <button
           className="adminApprovedPost__approve"
           type="submit"
-          onClick={solvedStatus}
+          onClick={solvedStatus} /* Change the status of report to solved*/
         >
           Completed
         </button>
@@ -106,7 +108,7 @@ function AdminApprovedPost({
         </button>
       </div>
 
-      {/* Modal pops after decline button is hit */}
+      {/* Modal pops after decline button is pressed */}
       <Modal
         open={openModal} //state to keep track if its open
         onClose={() => setOpenModal(false)}
@@ -124,6 +126,7 @@ function AdminApprovedPost({
             </center>
 
             <DescriptionOutlinedIcon />
+            {/* Open up a text box where the City of Regina employee can state their reason for declining*/}
             <textarea
               className="adminApprovedPost__textarea"
               placeholder="Please state the reason for
@@ -131,6 +134,7 @@ function AdminApprovedPost({
               id="reason"
               type="text"
             />
+            {/*When button is presssed, change report status to declined*/}
             <button type="submit" onClick={declineStatus}>
               Decline
             </button>

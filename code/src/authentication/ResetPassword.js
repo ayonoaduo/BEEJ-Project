@@ -1,6 +1,11 @@
 import React from "react";
 import "./SigninSignupReset.css";
 import { auth } from "../firebase";
+
+/* This function handles the "Reset password" screen.
+ * This screen is displayed when a user tries to reset or recover password
+ * Users will be able to input their email and will receive a link to reset the password. */
+
 function ResetPassword({ emailRef, setResetPass, setSignIn }) {
   // function to reset password. It is called when the reset button is clicked
   const reset = (e) => {
@@ -28,8 +33,8 @@ function ResetPassword({ emailRef, setResetPass, setSignIn }) {
           <span
             className="resetPassword__link"
             onClick={() => {
-              setResetPass(false);
-              setSignIn(true);
+              setResetPass(false); //close the resetPassword screen
+              setSignIn(true); //display the sign in screen
             }}
           >
             Sign In.

@@ -15,13 +15,11 @@
   color: #fff;
   left: 0;
   right: 0;
-  /* padding: 50px; */
 }
 
 .authentication__gradient {
   width: 100%;
   z-index: 1;
-  /* height: 100vh; */
   height: 100vh;
   background: rgba(0, 0, 0, 0.4);
   background-image: linear-gradient(
@@ -53,7 +51,6 @@
 .authentication__header > h1 {
   font-size: 2rem;
   font-weight: 400;
-  /* margin-top: 100px; */
   margin-top: 70px;
   margin-bottom: 10px;
   font-family: cursive;

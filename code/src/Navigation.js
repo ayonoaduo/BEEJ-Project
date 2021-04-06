@@ -10,6 +10,7 @@ import "./Navigation.css";
 import logo from "./images/beej-black.png";
 import { auth } from "./firebase";
 
+/* this handles the navigation icons for the mobile view/mode */
 const tabs = [
   {
     route: "/Homepage",
@@ -28,11 +29,13 @@ const tabs = [
   },
 ];
 
+/** This handles the navigation icons for navigating through the application  */
+
 const Navigation = ({ user, setSignIn, setSignUp, progress, setProgress }) => {
   return (
     <div className="sticky-top">
       {!user.emailVerified ? (
-        //display the email verification bar if the user's email is not verified
+        // this will display the email verification bar if the user's email has npt yet been verified
         <div className="verifyEmail">
           <h1>Please Check and Verify Your Email. Then Sign In.</h1>
           <button
@@ -47,7 +50,7 @@ const Navigation = ({ user, setSignIn, setSignUp, progress, setProgress }) => {
           </button>
         </div>
       ) : (
-        //else display the navigation icons
+        //if the user's email has been verified, the navigation icons can then be displayed
         <div>
           {!progress ? ( //progress bar display
             <h12></h12>
@@ -58,7 +61,8 @@ const Navigation = ({ user, setSignIn, setSignUp, progress, setProgress }) => {
               max="100"
             />
           )}
-          {/* Top Bar for Desktop*/}
+
+          {/* Top bar navigation for Desktop mode/view*/}
           <nav
             className="navbar navbar-expand-md navbar-light d-none d-lg-block"
             role="navigation"
@@ -88,7 +92,8 @@ const Navigation = ({ user, setSignIn, setSignUp, progress, setProgress }) => {
               </nav-item>
             </div>
           </nav>
-          {/* Top Bar for Mobile*/}
+
+          {/* Top bar navigation icon for mobile view/mode*/}
           <nav
             className="navbar navbar-expand-md navbar-light d-block d-lg-none"
             role="navigation"
@@ -108,7 +113,8 @@ const Navigation = ({ user, setSignIn, setSignUp, progress, setProgress }) => {
               <nav-item></nav-item>
             </div>
           </nav>
-          {/* Bottom Tab Navigator*/}
+
+          {/* Bottom tab Navigation for mobile view/mode*/}
           <nav
             className="navbar fixed-bottom navbar-light d-block d-lg-none bottom-tab-nav"
             role="navigation"

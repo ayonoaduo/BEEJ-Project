@@ -8,6 +8,11 @@ import logo from "./images/beej-black.png";
 import DescriptionOutlinedIcon from "@material-ui/icons/DescriptionOutlined";
 import firebase from "firebase";
 
+/* This function allows the City of Regina employees to see all the submitted reports
+ * The employee can then choose to approve or decline a report
+ * If a report is approved, the status of the report will change and the report will now be displayed
+ * on the citizen's homepage. If a report id is declined, the satus of the report will change and the report will
+ * leave the Admin homepage */
 function AdminPost({
   postId,
   user,
@@ -76,7 +81,9 @@ function AdminPost({
       <div className="adminPost__header">
         <Avatar
           className="adminPost__avatar"
-          alt={username} /*display the first letter if no picture*/
+          alt={
+            username
+          } /*display the first letter of user's name if no picture*/
           src="/static/images/avatar/1.jpg"
         />
         <h3>{username}</h3>
@@ -112,7 +119,7 @@ function AdminPost({
 
       {/* Modal pops after decline button is hit */}
       <Modal
-        open={openModal} //state to keep track if its open
+        open={openModal} //state to keep track if it's open
         onClose={() => setOpenModal(false)}
       >
         <div style={modalStyle} className={classes.paper}>
@@ -128,6 +135,7 @@ function AdminPost({
             </center>
 
             <DescriptionOutlinedIcon />
+            {/* A text box where the City of Regina employee can state their reason for declining*/}
             <textarea
               className="adminPost__textarea"
               placeholder="Please state the reason for

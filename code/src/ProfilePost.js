@@ -4,6 +4,10 @@ import "./ProfilePost.css";
 import Avatar from "@material-ui/core/Avatar";
 import firebase from "firebase";
 
+/* This functiion  displays the profile page of the signed in user.
+ * The user will be able to see every report submitted by them including the status
+ * and comments on each report. If a report has been declined, the user will be abel to see the
+ * reason for declining. */
 function ProfilePost({
   postId,
   user,

@@ -47,6 +47,11 @@ const useStyless = makeStyles((theme) => ({
   },
 }));
 
+/* This function handles the Settings page.
+ * The page is displayed when a user clicks the "settings" button on their profile page.
+ * On this page, Users can reset their password,
+ * sign out from the app, and go to the admin "Submitted Reports" page by inputting the authorization code
+ */
 function Settings({ user, setSignIn, setSignUp, setResetPass }) {
   const classess = useStyless();
   const classes = useStyles();
@@ -186,8 +191,8 @@ function Settings({ user, setSignIn, setSignUp, setResetPass }) {
                   onClick={() => {
                     setSignIn(false);
                     setSignUp(false);
-                    setResetPass(true);
-                    auth.signOut();
+                    setResetPass(true); //display the reset password screen
+                    auth.signOut(); //sign the user out
                   }}
                 >
                   Reset

@@ -7,6 +7,8 @@ import { Link } from "react-router-dom";
 import SettingsIcon from "@material-ui/icons/Settings";
 import IconButton from "@material-ui/core/IconButton";
 
+/* This function displays the posts on the Prifile Page which is populated with the post
+ * of the signed in user */
 function ProfilePage({ user, username, address, setAddress }) {
   /*states...how you set variables in react*/
   const [posts, setPosts] = useState([]);

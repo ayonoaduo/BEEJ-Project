@@ -4,9 +4,13 @@ import "./Post.css";
 import Avatar from "@material-ui/core/Avatar";
 import firebase from "firebase";
 
+/* This function handles all the reports that are posted into the database and handles the 
+ comments on each report posted to the database as well */
+
 function Post({ postId, user, username, caption, imageUrl, address }) {
-  const [comments, setComments] = useState([]); //keep track of the comments
-  const [comment, setComment] = useState("");
+  /*states...how we set variables in react*/
+  const [comments, setComments] = useState([]); // state to keep track of the comments
+  const [comment, setComment] = useState(""); // state that sets the comment value
 
   useEffect(() => {
     let unsubscribe;
@@ -28,7 +32,7 @@ function Post({ postId, user, username, caption, imageUrl, address }) {
     };
   }, [postId]);
 
-  //function that submits comment into database for a specific post
+  /** This handles submitting comments into database for each individual report*/
   const postComment = (event) => {
     event.preventDefault();
 
@@ -52,6 +56,7 @@ function Post({ postId, user, username, caption, imageUrl, address }) {
         <h3>{username}</h3>
       </div>
 
+      {/*user location*/}
       <div className="post__address">
         <h5>{address}</h5>
       </div>
@@ -64,6 +69,7 @@ function Post({ postId, user, username, caption, imageUrl, address }) {
         <strong>{username}:</strong> {caption}
       </h4>
 
+      {/* commments of other users  */}
       <div className="post__comments">
         {comments.map((
           comment //map through each comment
@@ -74,6 +80,7 @@ function Post({ postId, user, username, caption, imageUrl, address }) {
         ))}
       </div>
 
+      {/* comment section of a report */}
       <form className="post__commentBox">
         <input
           className="post__input"
@@ -82,8 +89,10 @@ function Post({ postId, user, username, caption, imageUrl, address }) {
           value={comment}
           onChange={(e) => setComment(e.target.value)}
         />
+
+        {/* post comment button */}
         <button
-          disabled={!comment} //disable if there is no comment
+          disabled={!comment} //If there is no comment, the post button is disabled and cannot post
           className="post__button"
           type="submit"
           onClick={postComment}

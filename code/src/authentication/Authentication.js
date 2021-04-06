@@ -5,6 +5,10 @@ import Signin from "./Signin";
 import Signup from "./Signup";
 import ResetPassword from "./ResetPassword";
 
+/* This function handles the authentication screen.
+ * This screen is displayed when a user is signed out or does not exist
+ * Users will be able to navigate between the sign in, sign up, and reset password screen. */
+
 function Authentication({
   resetPass,
   setResetPass,
@@ -26,7 +30,6 @@ function Authentication({
 
         <div className="authentication__header">
           <h1>Bridging the gap of communication.</h1>
-          {/* <h2>Citizens and Ministries.</h2> */}
         </div>
 
         {/* display sign in button at the top when user is on sign up page*/}

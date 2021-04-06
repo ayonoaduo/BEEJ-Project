@@ -1,5 +1,10 @@
 import React from "react";
 import "./SigninSignupReset.css";
+
+/* This function handles the Sign in screen.
+ * This screen is displayed when a user is signed out or tries to sign in
+ * Users will be able to input their credentials (email and password) to sign in to the app. */
+
 const Signin = ({
   signIn,
   emailRef,
@@ -12,6 +17,7 @@ const Signin = ({
     <div className="signin">
       <form>
         <h1>Sign In</h1>
+
         <input ref={emailRef} placeholder="Email" type="email" id="email" />
         <input
           ref={passwordRef}
@@ -41,8 +47,8 @@ const Signin = ({
           <span
             className="signin__link"
             onClick={() => {
-              setResetPass(true);
-              setSignIn(false);
+              setResetPass(true); //display the reset password screen
+              setSignIn(false); //close the sign in screen
             }}
           >
             Reset here.

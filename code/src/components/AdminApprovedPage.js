@@ -6,6 +6,10 @@ import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
 import IconButton from "@material-ui/core/IconButton";
 import DescriptionOutlinedIcon from "@material-ui/icons/DescriptionOutlined";
+
+/* This function handles the Approved reports page.
+ * This screen is displayed when a user clicks the "Approved Reports" button on the Submitted reports page. */
+
 function AdminApprovedPage(user) {
   /*states...how we set variables in react*/
   const [posts, setPosts] = useState([]);
@@ -32,7 +36,8 @@ function AdminApprovedPage(user) {
 
   return (
     <div className="adminApprovedPage">
-      {/* Button for small devices */}
+      {/* Button for small devices.
+      Takes the user back to the submitted reports page when clicked */}
       <IconButton
         size="large"
         classes={{ label: "adminApprovedPage__button d3-block d3-lg-none" }}
@@ -42,7 +47,8 @@ function AdminApprovedPage(user) {
         <DescriptionOutlinedIcon />
       </IconButton>
 
-      {/* Button for large devices */}
+      {/* Button for large devices
+      Takes the user back to the submitted reports page when clicked  */}
       <Button
         size="large"
         endIcon={<DescriptionOutlinedIcon />}

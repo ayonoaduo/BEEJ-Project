@@ -76,12 +76,12 @@
   display: flex;
   justify-content: space-between;
   padding: 20px;
-  opacity: 0.8;
+  opacity: 1;
   outline-width: 0;
 }
 
 .settings__reset:hover {
-  opacity: 1;
+  opacity: 0.8;
 }
 
 .settings__reset > button {

@@ -11,6 +11,7 @@ import AdminApprovedPage from "./components/AdminApprovedPage";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { auth } from "./firebase";
 
+/* This function keeps all page navigation within the session of the webpage. */
 function App() {
   const [user, setUser] = useState(null); //state to keep track of the user
   const [username, setUsername] = useState("");
@@ -109,6 +110,7 @@ function App() {
             />
 
             <Switch>
+              {/* The following route statements call the appropriate components that display the required info for each page */}
               <Route exact path="/">
                 <HomePage
                   user={user}

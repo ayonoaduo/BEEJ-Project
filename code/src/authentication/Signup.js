@@ -1,5 +1,10 @@
 import React from "react";
-// import "./SigninSignupReset.css";
+import "./SigninSignupReset.css";
+
+/* This function handles the sign up screen.
+ * This screen is displayed if the user does not have an account or
+ * if the user accesses the PWA for the first time.
+ * Users will be required to enter their username, email and password to create an account */
 
 function Signup({
   username,
@@ -30,8 +35,8 @@ function Signup({
           <span
             className="signup__link"
             onClick={() => {
-              setSignUp(false);
-              setSignIn(true);
+              setSignUp(false); //close the sign up screen
+              setSignIn(true); //display the sign in screen
             }}
           >
             Sign In.
