@@ -13,6 +13,7 @@ Here is a list of all deliverables submitted for this project:
 - [Progress Vlog 3](https://youtu.be/GehwIDdgUJ4) (December 14, 2020)
 - [Progress Vlog 4](https://youtu.be/KMpbOyX_cFc) (February 4, 2021)
 - [Progress Vlog 5](https://youtu.be/1LnWHFXJOwI) (March 18, 2021)
+- [Progress Vlog 6](https://youtu.be/0xyyQa_rfeM) (April 8, 2021)
 - [Project Commercial](https://youtu.be/fF5UB2lhcEE) (April 8, 2021)
 
 
