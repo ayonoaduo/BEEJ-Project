@@ -21,6 +21,9 @@ Here is a list of all deliverables submitted for this project:
 - [Progress Vlog 6](https://youtu.be/0xyyQa_rfeM) (April 8, 2021)
 - [Project Commercial](https://youtu.be/mOgAwcfRhno) (April 8, 2021)
 
+[Capstone Poster.pdf](https://github.com/ayonoaduo/BEEJ-Project/files/6322240/Capstone.Poster.pdf)
+
+
 
 ## Legal Notices
 
