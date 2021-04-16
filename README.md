@@ -17,8 +17,6 @@ Here is a list of all deliverables submitted for this project:
 - [Project Commercial](https://youtu.be/mOgAwcfRhno) (April 8, 2021)
 
 
-***
-
 ## Legal Notices
 
 Copyright (c) 2020 Onisokien Ayonoadu, Jaskirat Josan, Samuel Iregbu, Joseph Bello.
