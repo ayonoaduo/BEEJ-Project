@@ -22,6 +22,7 @@ Here is a list of all deliverables submitted for this project:
 - [Project Commercial](https://youtu.be/mOgAwcfRhno) (April 8, 2021)
 
 
+![Capstone Poster-1](https://user-images.githubusercontent.com/43055163/114966583-1dc4fd00-9e30-11eb-9e66-fe9dd807f246.png)
 
 
 
