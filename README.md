@@ -2,6 +2,10 @@
 
 The Link is a Progressive Web Application designed to bridge the gap of communication between the citizens and the City of Regina. Citizens can take a picture of road hazards in their area and submit their report. The City of Regina can easily view, approve and monitor reports. Once a report is approved, it will appear on the homepage and can be viewed by all users. This is to keep users in the loop of what is happening around the city. The Link strives to be an inclusive platform that organizes the communication between the citizens and the City of Regina in the most streamlined and concise way possible.
 
+# Creators of The Link
+<img width="736" alt="Screen Shot 2021-04-15 at 9 07 15 PM" src="https://user-images.githubusercontent.com/43055163/114965798-9034dd80-9e2e-11eb-8d74-96b9b3062b4b.png">
+
+
 ## Project Deliverables 
 
 Here is a list of all deliverables submitted for this project: 
